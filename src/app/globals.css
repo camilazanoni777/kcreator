@@ -1,0 +1,186 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@config "../../tailwind.config.js";
+
+:root {
+    --font-sans: "Aptos", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-cormorant: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    --radius: 1.2rem;
+    --background: 18 28% 97%;
+    --foreground: 327 12% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 327 12% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 327 12% 20%;
+    --primary: 326 18% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 18 23% 95%;
+    --secondary-foreground: 327 10% 28%;
+    --muted: 18 18% 93%;
+    --muted-foreground: 325 8% 48%;
+    --destructive: 0 35% 56%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 15 18% 87%;
+    --input: 16 18% 88%;
+    --ring: 326 18% 45%;
+    --accent: 344 33% 90%;
+    --accent-foreground: 331 18% 33%;
+    --success: 149 22% 39%;
+    --success-foreground: 0 0% 100%;
+    --success-soft: 145 23% 88%;
+    --warning: 37 42% 59%;
+    --warning-foreground: 32 24% 26%;
+    --warning-soft: 38 43% 89%;
+    --sidebar: 15 22% 96%;
+    --sidebar-foreground: 326 10% 28%;
+    --sidebar-border: 15 16% 86%;
+    --sidebar-accent: 345 22% 93%;
+
+    --foreground-rgb: 51, 42, 49;
+    --background-start-rgb: 250, 247, 243;
+    --background-end-rgb: 244, 238, 235;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: 330 11% 12%;
+        --foreground: 0 0% 98%;
+        --card: 330 10% 15%;
+        --card-foreground: 0 0% 98%;
+        --popover: 330 10% 15%;
+        --popover-foreground: 0 0% 98%;
+        --primary: 330 24% 67%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 330 7% 19%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 330 7% 19%;
+        --muted-foreground: 327 9% 70%;
+        --destructive: 0 32% 50%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 330 6% 24%;
+        --input: 330 6% 24%;
+        --ring: 330 24% 67%;
+        --accent: 339 15% 24%;
+        --accent-foreground: 344 35% 90%;
+        --success: 149 28% 55%;
+        --success-foreground: 0 0% 100%;
+        --success-soft: 149 14% 22%;
+        --warning: 37 44% 61%;
+        --warning-foreground: 37 18% 18%;
+        --warning-soft: 37 17% 24%;
+        --sidebar: 330 9% 14%;
+        --sidebar-foreground: 240 4.8% 95.9%;
+        --sidebar-border: 330 6% 24%;
+        --sidebar-accent: 330 7% 19%;
+
+        --foreground-rgb: 243, 244, 246;
+        --background-start-rgb: 35, 28, 33;
+        --background-end-rgb: 25, 20, 24;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    html {
+        font-size: 93.75%;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        color: rgb(var(--foreground-rgb));
+        background:
+            radial-gradient(circle at top left, rgba(230, 213, 219, 0.64), transparent 28%),
+            radial-gradient(circle at top right, rgba(244, 232, 220, 0.92), transparent 24%),
+            linear-gradient(180deg, rgb(var(--background-start-rgb)) 0%, #ffffff 56%, rgb(var(--background-end-rgb)) 100%);
+        min-height: 100vh;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+
+    body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background:
+            radial-gradient(circle at 18% 18%, rgba(133, 105, 120, 0.08), transparent 16%),
+            radial-gradient(circle at 80% 22%, rgba(217, 189, 197, 0.18), transparent 18%),
+            linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.18) 100%);
+    }
+
+    ::selection {
+        background: rgba(133, 105, 120, 0.18);
+        color: hsl(var(--foreground));
+    }
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+
+    .glass {
+        @apply border border-white/50 bg-white/75 backdrop-blur-xl;
+    }
+
+    .glass-dark {
+        @apply border border-charcoal-700/20 bg-charcoal-900/70 backdrop-blur-xl;
+    }
+
+    .gradient-primary {
+        @apply bg-gradient-to-br from-iris-50 via-white to-sand-50;
+    }
+
+    .gradient-accent {
+        @apply bg-gradient-to-r from-iris-500 via-iris-500 to-blush-300;
+    }
+
+    .surface-muted {
+        @apply bg-gradient-to-br from-white via-secondary/60 to-secondary/80;
+    }
+
+    .kicker {
+        @apply text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-muted-foreground/80;
+    }
+
+    .stat-number {
+        @apply text-foreground font-semibold tracking-[-0.04em];
+    }
+}
+
+@layer components {
+    .card {
+        @apply rounded-[28px] border border-border/80 bg-white/96 p-6 shadow-panel backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-panel-hover;
+    }
+
+    .card-glass {
+        @apply rounded-[28px] border border-white/60 bg-white/70 p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-panel-hover;
+    }
+
+    .card-highlight {
+        @apply rounded-[30px] border border-iris-200/90 bg-gradient-to-br from-white via-iris-50/80 to-sand-50/90 p-6 shadow-panel;
+    }
+
+    .card-status {
+        @apply rounded-[28px] border p-5 shadow-panel;
+    }
+
+    .btn-primary {
+        @apply rounded-2xl bg-gradient-to-r from-iris-500 via-iris-500 to-blush-300 px-6 py-3 font-medium text-white shadow-lg shadow-iris-500/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-iris-500/25 active:translate-y-0;
+    }
+
+    .btn-secondary {
+        @apply rounded-2xl border border-border bg-white/92 px-6 py-3 font-medium text-foreground shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-iris-200 hover:shadow-md;
+    }
+
+    .input-field {
+        @apply w-full rounded-2xl border border-input bg-white/92 px-4 py-3 transition-all duration-200 focus:border-iris-300 focus:outline-none focus:ring-4 focus:ring-iris-200/50;
+    }
+
+    .section-shell {
+        @apply rounded-[32px] border border-border/70 bg-white/72 p-5 shadow-soft backdrop-blur-sm sm:p-6;
+    }
+}
