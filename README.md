@@ -33,6 +33,3 @@ npm.cmd run start
 
 No PowerShell deste Windows, use `npm.cmd` em vez de `npm` para evitar o bloqueio de `npm.ps1`.
 
-## Integração da Branch Remota
-
-Esta branch também incorpora o histórico remoto existente, incluindo a pasta `kcreator/` trazida da branch `origin/new-changes-1`.
