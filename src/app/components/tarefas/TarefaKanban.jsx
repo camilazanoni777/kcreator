@@ -1,9 +1,9 @@
 'use client'
 
-import React, { useState } from 'react';
-import { useEntityMutations } from '../../lib/hooks/useEntities';
+import { useState } from 'react';
 import { Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useEntityMutations } from '@/lib/hooks/useEntities';
 import { cn } from '@/lib/utils';
 
 const COLUMNS = [

@@ -1,3 +1,1 @@
-import Metas from '../../pages/Metas'
-
-export default Metas
+export { default } from '@/pages/Metas'

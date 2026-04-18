@@ -1,3 +1,1 @@
-import CheckIn from '../../pages/CheckIn'
-
-export default CheckIn
+export { default } from '@/pages/CheckIn'

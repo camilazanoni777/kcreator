@@ -1,9 +1,8 @@
 'use client'
 
-import React from 'react'
 import { PlanProvider, usePlan } from '@/lib/PlanContext'
 import { EntitiesProvider } from '@/lib/hooks/useEntities'
-import Onboarding from '../../pages/Onboarding'
+import Onboarding from '@/pages/Onboarding'
 import Sidebar from '@/components/layout/Sidebar'
 import MobileNav from '@/components/layout/MobileNav'
 

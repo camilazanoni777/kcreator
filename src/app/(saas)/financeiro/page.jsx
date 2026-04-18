@@ -1,3 +1,1 @@
-import Financeiro from '../../pages/Financeiro'
-
-export default Financeiro
+export { default } from '@/pages/Financeiro'

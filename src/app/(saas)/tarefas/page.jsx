@@ -1,3 +1,1 @@
-import Tarefas from '../../pages/Tarefas'
-
-export default Tarefas
+export { default } from '@/pages/Tarefas'

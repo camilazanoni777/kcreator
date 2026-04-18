@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import { useState } from 'react'
 import {
   Plus,
   Sparkles,
@@ -21,11 +21,11 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 
-import BentoCard from '../components/shared/BentoCard'
-import PageHeader from '../components/shared/PageHeader'
-import { formatBRL } from '../lib/formatCurrency'
-import { useEntityList, useEntityMutations } from '../lib/hooks/useEntities'
-import { usePlan } from '../lib/PlanContext'
+import BentoCard from '@/components/shared/BentoCard'
+import PageHeader from '@/components/shared/PageHeader'
+import { formatBRL } from '@/lib/formatCurrency'
+import { useEntityList, useEntityMutations } from '@/lib/hooks/useEntities'
+import { usePlan } from '@/lib/PlanContext'
 
 const EMPTY_FORM = {
   titulo: '',

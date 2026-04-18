@@ -1,3 +1,1 @@
-import Configuracoes from '../../pages/Configuracoes'
-
-export default Configuracoes
+export { default } from '@/pages/Configuracoes'

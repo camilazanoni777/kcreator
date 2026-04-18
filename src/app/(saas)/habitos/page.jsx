@@ -1,3 +1,1 @@
-import Habitos from '../../pages/Habitos'
-
-export default Habitos
+export { default } from '@/pages/Habitos'

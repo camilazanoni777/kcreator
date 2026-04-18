@@ -1,13 +1,12 @@
 'use client'
 
-import React, { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import {
   addMonths,
   eachDayOfInterval,
   endOfMonth,
   endOfWeek,
   format,
-  isAfter,
   isBefore,
   isSameDay,
   isSameMonth,
@@ -32,13 +31,13 @@ import {
   Sparkles,
 } from 'lucide-react'
 
-import BentoCard from '../components/shared/BentoCard'
-import PageHeader from '../components/shared/PageHeader'
+import BentoCard from '@/components/shared/BentoCard'
+import PageHeader from '@/components/shared/PageHeader'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 
 
-import { useEntityList, useEntityMutations } from '../lib/hooks/useEntities'
+import { useEntityList, useEntityMutations } from '@/lib/hooks/useEntities'
 import { cn } from '@/lib/utils'
 
 const WEEKDAYS = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb']
@@ -177,7 +176,6 @@ export default function Agenda() {
   const [draggedTaskId, setDraggedTaskId] = useState(null)
   const [dropTarget, setDropTarget] = useState(null)
   const [recentDropDay, setRecentDropDay] = useState(null)
-  const [quickScheduleTaskId, setQuickScheduleTaskId] = useState('')
   const [form, setForm] = useState(DEFAULT_FORM)
 
   const monthStart = startOfMonth(currentMonth)
@@ -233,24 +231,11 @@ export default function Agenda() {
     return dueDate >= weekStart && dueDate <= weekEnd
   })
 
-  const _upcomingTasks = sortTasksByTime(
-    tarefas.filter((task) => {
-      if (!task.prazo || task.status === 'concluida') return false
-      return isAfter(new Date(task.prazo), new Date())
-    })
-  ).slice(0, 4)
-
   useEffect(() => {
     if (!recentDropDay) return undefined
     const timeout = window.setTimeout(() => setRecentDropDay(null), 850)
     return () => window.clearTimeout(timeout)
   }, [recentDropDay])
-
-  useEffect(() => {
-    if (quickScheduleTaskId && !unscheduled.some((task) => task.id === quickScheduleTaskId)) {
-      setQuickScheduleTaskId('')
-    }
-  }, [quickScheduleTaskId, unscheduled])
 
   const summary = [
     {
@@ -333,12 +318,6 @@ export default function Agenda() {
     const taskId = transferredId || draggedTaskId
     if (!taskId) return
     scheduleTaskOnDay(taskId, day)
-  }
-
-  const _handleQuickSchedule = () => {
-    if (!quickScheduleTaskId) return
-    scheduleTaskOnDay(quickScheduleTaskId, selectedDay)
-    setQuickScheduleTaskId('')
   }
 
   const getTasksForDay = (day) =>

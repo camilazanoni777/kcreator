@@ -1,15 +1,14 @@
 'use client'
 
-import React from 'react'
 import Link from 'next/link'
-import HeroCard from '../shared/HeroCard'
-import BentoCard from '../shared/BentoCard'
-import MetricCard from '../shared/MetricCard'
+import BentoCard from '@/components/shared/BentoCard'
+import HeroCard from '@/components/shared/HeroCard'
+import MetricCard from '@/components/shared/MetricCard'
 import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
-import { useEntityList } from '../../lib/hooks/useEntities'
-import { formatBRL } from '../../lib/formatCurrency'
-import { usePlan } from '../../lib/PlanContext'
+import { formatBRL } from '@/lib/formatCurrency'
+import { useEntityList } from '@/lib/hooks/useEntities'
+import { usePlan } from '@/lib/PlanContext'
 import {
   CircleDollarSign,
   Flame,
@@ -27,9 +26,7 @@ import {
   getDate,
   getDaysInMonth,
   isAfter,
-  isBefore,
   isToday,
-  startOfDay,
   startOfWeek,
 } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
@@ -40,6 +37,7 @@ import {
   SectionHeader,
   SectionPill,
 } from './DashboardShared'
+import { getUsagePercentage, greetingFor, PRIORITY_ORDER } from './helpers'
 
 const HUMOR_META = {
   otimo: { emoji: '😄', label: 'Ótimo', tone: 'success' },
@@ -47,20 +45,6 @@ const HUMOR_META = {
   neutro: { emoji: '😐', label: 'Neutro', tone: 'default' },
   cansado: { emoji: '😴', label: 'Cansado', tone: 'blush' },
   ruim: { emoji: '😔', label: 'Ruim', tone: 'danger' },
-}
-
-const PRIORITY_ORDER = { urgente: 0, alta: 1, media: 2, baixa: 3 }
-
-function greetingFor(date) {
-  const hour = date.getHours()
-  if (hour < 12) return 'Bom dia'
-  if (hour < 18) return 'Boa tarde'
-  return 'Boa noite'
-}
-
-function percentUsage(total, used) {
-  if (!total) return 0
-  return Math.min(Math.round((used / total) * 100), 100)
 }
 
 export default function DashboardCasal() {
@@ -93,7 +77,7 @@ export default function DashboardCasal() {
   const totalContas = contas.reduce((sum, item) => sum + (item.valor || 0), 0)
   const totalSaidas = totalGastos + totalContas
   const saldo = totalCasa - totalSaidas
-  const percentualOrcamento = percentUsage(totalCasa, totalSaidas)
+  const percentualOrcamento = getUsagePercentage(totalCasa, totalSaidas)
   const totalDividas = dividas.reduce((sum, item) => {
     const pago = ((item.valor_total || 0) / (item.parcelas_total || 1)) * (item.parcelas_pagas || 0)
     return sum + ((item.valor_total || 0) - pago)
@@ -104,12 +88,10 @@ export default function DashboardCasal() {
     .filter((item) => item.status !== 'concluida')
     .sort((a, b) => (PRIORITY_ORDER[a.prioridade] ?? 3) - (PRIORITY_ORDER[b.prioridade] ?? 3))
     .slice(0, 4)
-  const _atrasadas = tarefas.filter((item) => item.prazo && isBefore(new Date(item.prazo), startOfDay(today)) && item.status !== 'concluida')
   const concluidasSemana = tarefas.filter((item) => item.status === 'concluida' && item.updated_date && isAfter(new Date(item.updated_date), startWeek))
 
   const diasNoMes = getDaysInMonth(today)
   const diaAtual = getDate(today)
-  const _percentMes = Math.round((diaAtual / diasNoMes) * 100)
 
   const metasAtivas = metas.filter((item) => (item.valor_atual || 0) < (item.valor_total || 1))
   const publisReceita = conteudos

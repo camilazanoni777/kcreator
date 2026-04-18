@@ -1,8 +1,11 @@
 'use client'
 
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { CheckCircle, Plus, Search, Sparkles, X } from 'lucide-react'
 
+import BentoCard from '@/components/shared/BentoCard'
+import PageHeader from '@/components/shared/PageHeader'
+import TarefaKanban from '@/components/tarefas/TarefaKanban'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -13,11 +16,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-
-import TarefaKanban from '../components/tarefas/TarefaKanban'
-import BentoCard from '../components/shared/BentoCard'
-import PageHeader from '../components/shared/PageHeader'
-import { useEntityList, useEntityMutations } from '../lib/hooks/useEntities'
+import { useEntityList, useEntityMutations } from '@/lib/hooks/useEntities'
 
 const PRIORIDADES = [
   { value: 'baixa', label: 'Baixa' },

@@ -1,11 +1,11 @@
 'use client'
 
-import React, { useState } from 'react';
-import { usePlan } from '../lib/PlanContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Heart, User, ArrowRight, Sparkles, Users, Check } from 'lucide-react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { usePlan } from '@/lib/PlanContext';
 import { cn } from '@/lib/utils';
 
 const STEP_PLAN = 0;

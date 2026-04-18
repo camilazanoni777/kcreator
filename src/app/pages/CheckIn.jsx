@@ -1,10 +1,10 @@
 'use client'
 
-import React, { useState } from 'react';
-import PageHeader from '../components/shared/PageHeader';
-import BentoCard from '../components/shared/BentoCard';
-import { useEntityList, useEntityMutations } from '../lib/hooks/useEntities';
 import { Smile, Trash2 } from 'lucide-react';
+import { useState } from 'react';
+import BentoCard from '@/components/shared/BentoCard';
+import PageHeader from '@/components/shared/PageHeader';
+import { useEntityList, useEntityMutations } from '@/lib/hooks/useEntities';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';

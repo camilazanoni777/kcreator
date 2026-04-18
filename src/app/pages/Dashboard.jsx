@@ -1,9 +1,8 @@
 'use client'
 
-import React from 'react';
-import { usePlan } from '../lib/PlanContext';
-import DashboardIndividual from '../components/dashboard/DashboardIndividual';
-import DashboardCasal from '../components/dashboard/DashboardCasal';
+import DashboardCasal from '@/components/dashboard/DashboardCasal';
+import DashboardIndividual from '@/components/dashboard/DashboardIndividual';
+import { usePlan } from '@/lib/PlanContext';
 
 export default function Dashboard() {
   const { isIndividual } = usePlan();

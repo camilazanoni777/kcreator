@@ -1,12 +1,12 @@
 'use client'
 
-import React, { useState } from 'react';
-import PageHeader from '../components/shared/PageHeader';
-import { usePlan } from '../lib/PlanContext';
 import { Heart, User, ArrowRight, Check, Sparkles } from 'lucide-react';
+import { useState } from 'react';
+import PageHeader from '@/components/shared/PageHeader';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { usePlan } from '@/lib/PlanContext';
 import { cn } from '@/lib/utils';
 import { useToast } from '@/components/ui/use-toast';
 

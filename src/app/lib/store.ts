@@ -9,6 +9,7 @@ import {
   FinanceTransaction,
   CoupleCheckin
 } from '@/types';
+import { calculateStreak } from '@/lib/utils';
 
 interface AppState {
   // User
@@ -147,38 +148,3 @@ export const useAppStore = create<AppState>()(
     }
   )
 );
-
-// Helper function needed in store
-function calculateStreak(dates: string[]): number {
-  if (dates.length === 0) return 0;
-
-  const sortedDates = [...dates].sort((a, b) =>
-    new Date(b).getTime() - new Date(a).getTime()
-  );
-
-  let streak = 1;
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  const lastDate = new Date(sortedDates[0]);
-  lastDate.setHours(0, 0, 0, 0);
-
-  const diffDays = Math.floor((today.getTime() - lastDate.getTime()) / (1000 * 60 * 60 * 24));
-
-  if (diffDays > 1) return 0;
-
-  for (let i = 1; i < sortedDates.length; i++) {
-    const currentDate = new Date(sortedDates[i]);
-    const prevDate = new Date(sortedDates[i - 1]);
-
-    const diff = Math.floor((prevDate.getTime() - currentDate.getTime()) / (1000 * 60 * 60 * 24));
-
-    if (diff === 1) {
-      streak++;
-    } else if (diff > 1) {
-      break;
-    }
-  }
-
-  return streak;
-}

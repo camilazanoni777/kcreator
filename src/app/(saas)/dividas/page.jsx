@@ -1,3 +1,1 @@
-import Dividas from '../../pages/Dívidas'
-
-export default Dividas
+export { default } from '@/pages/Dívidas'

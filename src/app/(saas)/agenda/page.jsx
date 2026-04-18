@@ -1,3 +1,1 @@
-import Agenda from '../../pages/Agenda'
-
-export default Agenda
+export { default } from '@/pages/Agenda'

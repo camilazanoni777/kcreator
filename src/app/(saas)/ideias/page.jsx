@@ -1,3 +1,1 @@
-import Ideias from '../../pages/Ideias'
-
-export default Ideias
+export { default } from '@/pages/Ideias'

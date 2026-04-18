@@ -1,11 +1,11 @@
 'use client'
 
-import React, { useState } from 'react';
-import PageHeader from '../components/shared/PageHeader';
-import BentoCard from '../components/shared/BentoCard';
-import { useEntityList, useEntityMutations } from '../lib/hooks/useEntities';
-import { formatBRL } from '../lib/formatCurrency';
+import { useState } from 'react';
 import { CheckCheck, AlertTriangle, Flame, Target, Plus, Trash2 } from 'lucide-react';
+import BentoCard from '@/components/shared/BentoCard';
+import PageHeader from '@/components/shared/PageHeader';
+import { formatBRL } from '@/lib/formatCurrency';
+import { useEntityList, useEntityMutations } from '@/lib/hooks/useEntities';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';

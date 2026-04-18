@@ -1,10 +1,10 @@
 'use client'
 
-import React, { useState } from 'react';
-import PageHeader from '../components/shared/PageHeader';
-import BentoCard from '../components/shared/BentoCard';
-import { useEntityList, useEntityMutations } from '../lib/hooks/useEntities';
 import { Dumbbell, Plus, Trash2, Minus } from 'lucide-react';
+import { useState } from 'react';
+import BentoCard from '@/components/shared/BentoCard';
+import PageHeader from '@/components/shared/PageHeader';
+import { useEntityList, useEntityMutations } from '@/lib/hooks/useEntities';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';

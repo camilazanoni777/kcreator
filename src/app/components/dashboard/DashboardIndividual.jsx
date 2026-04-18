@@ -1,15 +1,14 @@
 'use client'
 
-import React from 'react'
 import Link from 'next/link'
-import HeroCard from '../shared/HeroCard'
-import BentoCard from '../shared/BentoCard'
-import MetricCard from '../shared/MetricCard'
+import BentoCard from '@/components/shared/BentoCard'
+import HeroCard from '@/components/shared/HeroCard'
+import MetricCard from '@/components/shared/MetricCard'
 import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
-import { useEntityList } from '../../lib/hooks/useEntities'
-import { formatBRL } from '../../lib/formatCurrency'
-import { usePlan } from '../../lib/PlanContext'
+import { formatBRL } from '@/lib/formatCurrency'
+import { useEntityList } from '@/lib/hooks/useEntities'
+import { usePlan } from '@/lib/PlanContext'
 import {
   CircleDollarSign,
   Flame,
@@ -40,6 +39,7 @@ import {
   SectionPill,
   SoftAction,
 } from './DashboardShared'
+import { getUsagePercentage, greetingFor, PRIORITY_ORDER } from './helpers'
 
 const HUMOR_META = {
   otimo: { emoji: '😄', label: 'Ótimo', tone: 'success' },
@@ -47,20 +47,6 @@ const HUMOR_META = {
   neutro: { emoji: '😐', label: 'Neutro', tone: 'default' },
   cansado: { emoji: '😴', label: 'Cansado', tone: 'blush' },
   ruim: { emoji: '😔', label: 'Ruim', tone: 'danger' },
-}
-
-const PRIORITY_ORDER = { urgente: 0, alta: 1, media: 2, baixa: 3 }
-
-function greetingFor(date) {
-  const hour = date.getHours()
-  if (hour < 12) return 'Bom dia'
-  if (hour < 18) return 'Boa tarde'
-  return 'Boa noite'
-}
-
-function getFinancialUsage(totalRenda, totalSaidas) {
-  if (!totalRenda) return 0
-  return Math.min(Math.round((totalSaidas / totalRenda) * 100), 100)
 }
 
 export default function DashboardIndividual() {
@@ -85,7 +71,7 @@ export default function DashboardIndividual() {
   const totalContas = contas.reduce((sum, item) => sum + (item.valor || 0), 0)
   const totalSaidas = totalGastos + totalContas
   const saldo = totalRenda - totalSaidas
-  const percentRecursos = getFinancialUsage(totalRenda, totalSaidas)
+  const percentRecursos = getUsagePercentage(totalRenda, totalSaidas)
 
   const tarefasHoje = tarefas.filter((item) => item.prazo && isToday(new Date(item.prazo)) && item.status !== 'concluida')
   const topPrioridades = tarefas
