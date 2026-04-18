@@ -1,11 +1,11 @@
 # KCreator
 
-App SaaS em Next.js para rodar localmente em `http://localhost:3000`.
+Aplicativo de daily e organizacao pessoal em Next.js, pronto para rodar localmente em `http://localhost:3000`.
 
 ## Requisitos
 
 - Node.js instalado
-- Dependências do projeto instaladas
+- Dependencias do projeto instaladas
 
 ## Rodar localmente
 
@@ -22,14 +22,13 @@ Depois abra:
 http://localhost:3000
 ```
 
-## Build de produção local
+## Build de producao local
 
 ```powershell
 npm.cmd run build
 npm.cmd run start
 ```
 
-## Observação
+## Observacao
 
 No PowerShell deste Windows, use `npm.cmd` em vez de `npm` para evitar o bloqueio de `npm.ps1`.
-
