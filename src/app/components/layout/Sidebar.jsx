@@ -84,7 +84,7 @@ function NavItem({ item, collapsed, active }) {
         className={cn(
           'flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl transition-all duration-200',
           active
-            ? 'bg-gradient-to-br from-iris-100 to-sand-100 text-iris-700 dark:from-[#422733] dark:to-[#2d1a23] dark:text-rose-100'
+            ? 'bg-gradient-to-br from-iris-100 to-sand-100 text-iris-700 dark:from-[#28314a] dark:to-[#1d2436] dark:text-[#e1e6ff]'
             : 'bg-[hsl(var(--surface-soft)/0.85)] text-muted-foreground group-hover:bg-[hsl(var(--surface-elevated)/0.92)]'
         )}
       >
@@ -152,7 +152,7 @@ export default function Sidebar() {
           </div>
           {!collapsed ? (
             <div className="min-w-0 flex-1">
-              <p className="kicker mb-1">Lumina OS</p>
+              <p className="kicker mb-1">KCreator</p>
               <p className="truncate font-cormorant text-2xl font-semibold leading-none tracking-[-0.03em] text-foreground">
                 {profileName}
               </p>

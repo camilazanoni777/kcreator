@@ -9,7 +9,8 @@ import React, {
   useState,
 } from 'react'
 
-const STORAGE_KEY = 'duetto-plan-v1'
+const STORAGE_KEY = 'kcreator-plan-v1'
+const LEGACY_STORAGE_KEY = 'duetto-plan-v1'
 
 const defaultProfile = {
   nome: '',
@@ -22,7 +23,7 @@ const defaultProfile = {
 function loadStored() {
   if (typeof window === 'undefined') return { ...defaultProfile }
   try {
-    const raw = localStorage.getItem(STORAGE_KEY)
+    const raw = localStorage.getItem(STORAGE_KEY) ?? localStorage.getItem(LEGACY_STORAGE_KEY)
     if (!raw) return { ...defaultProfile }
     const parsed = JSON.parse(raw)
     return { ...defaultProfile, ...parsed }
@@ -34,6 +35,7 @@ function loadStored() {
 function saveStored(profile) {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(profile))
+    localStorage.removeItem(LEGACY_STORAGE_KEY)
   } catch {
     /* ignore */
   }

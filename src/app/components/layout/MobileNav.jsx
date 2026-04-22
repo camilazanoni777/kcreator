@@ -39,7 +39,7 @@ export default function MobileNav() {
                 className={cn(
                   'flex h-10 w-10 items-center justify-center rounded-2xl transition-all duration-200',
                   active
-                    ? 'bg-gradient-to-br from-iris-100 to-blush-100 text-iris-700 shadow-soft dark:from-[#402934] dark:to-[#2b1a24] dark:text-rose-100'
+                    ? 'bg-gradient-to-br from-iris-100 to-blush-100 text-iris-700 shadow-soft dark:from-[#28314a] dark:to-[#1c2438] dark:text-[#e1e6ff]'
                     : 'bg-[hsl(var(--surface-soft)/0.84)]'
                 )}
               >

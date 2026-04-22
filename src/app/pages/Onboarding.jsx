@@ -56,7 +56,7 @@ export default function Onboarding() {
           <Heart className="w-4.5 h-4.5 text-primary fill-primary/50" />
         </div>
         <div>
-          <p className="font-cormorant text-base font-semibold leading-none">Duetto</p>
+          <p className="font-cormorant text-base font-semibold leading-none">KCreator</p>
           <p className="text-[10px] text-muted-foreground tracking-widest uppercase mt-0.5">planner de vida</p>
         </div>
       </div>

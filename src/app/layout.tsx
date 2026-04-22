@@ -4,7 +4,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from '@/components/ui/sonner'
 
 export const metadata: Metadata = {
-    title: 'Lumina - Productivity & Wellness OS',
+    title: 'KCreator - Productivity & Wellness OS',
     description: 'Organização, bem-estar, finanças e creator studio em uma experiência premium.',
 }
 

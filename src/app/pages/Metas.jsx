@@ -56,9 +56,9 @@ function parseCurrencyInput(value) {
 
 function GoalMetric({ label, value, tone = 'default' }) {
   const tones = {
-    default: 'border-border/60 bg-card',
-    success: 'border-green-500/20 bg-green-500/5',
-    accent: 'border-accent/20 bg-accent/5',
+    default: 'border-border/60 bg-[linear-gradient(145deg,hsl(var(--surface-elevated)/0.96),hsl(var(--surface)/0.92))]',
+    success: 'border-green-500/20 bg-[linear-gradient(145deg,hsl(var(--surface-elevated)/0.98),hsl(var(--success-soft)/0.42)_100%)]',
+    accent: 'border-accent/20 bg-[linear-gradient(145deg,hsl(var(--surface-elevated)/0.98),hsl(var(--accent-soft)/0.62)_100%)]',
   }
 
   return (
@@ -268,7 +268,7 @@ export default function Metas() {
                   </div>
 
                   {isEditing ? (
-                    <div className="overflow-hidden rounded-[24px] border border-primary/20 bg-[linear-gradient(145deg,hsl(var(--surface-elevated)/0.98),hsl(var(--accent-soft)/0.72))] p-3 shadow-soft">
+                    <div className="overflow-hidden rounded-[24px] border border-primary/20 bg-[linear-gradient(145deg,hsl(var(--surface-elevated)/0.98),hsl(var(--accent-soft)/0.72))] p-3 shadow-soft dark:bg-[linear-gradient(145deg,hsl(var(--surface-elevated)/0.98),hsl(var(--accent-soft)/0.4)_52%,hsl(var(--surface)/0.94)_100%)]">
                       <div className="flex flex-col gap-3">
                         <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
                           <div className="flex items-center gap-2">

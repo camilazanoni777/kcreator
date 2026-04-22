@@ -11,29 +11,31 @@ export default function MetricCard({
   trend,
   className,
 }) {
+  const isDashboardCard = typeof className === 'string' && className.includes('dashboard-card-')
+
   const variantStyles = {
     default: 'border-border/80 bg-[linear-gradient(160deg,hsl(var(--surface-elevated)/0.98),hsl(var(--surface)/0.94))]',
-    positive: 'border-moss-200/70 bg-gradient-to-br from-white via-moss-50/90 to-[#f8fff9] dark:border-moss-500/15 dark:from-[#1c2420] dark:via-[#17201a] dark:to-[#141a16]',
-    negative: 'border-rouge-200/70 bg-gradient-to-br from-white via-rouge-50 to-[#fff8f8] dark:border-rouge-500/15 dark:from-[#281b1d] dark:via-[#231618] dark:to-[#191214]',
-    primary: 'border-primary/20 bg-gradient-to-br from-white via-iris-50/85 to-blush-50/70 dark:from-[#271e25] dark:via-[#221b23] dark:to-[#1b171d]',
-    accent: 'border-blush-200/70 bg-gradient-to-br from-white via-blush-50/85 to-iris-50/60 dark:from-[#281e24] dark:via-[#221b21] dark:to-[#1b171d]',
-    studio: 'border-blush-200/70 bg-gradient-to-br from-white via-blush-50/80 to-[#fffafb] dark:from-[#251d23] dark:via-[#211920] dark:to-[#19151b]',
+    positive: 'border-moss-200/70 bg-[linear-gradient(145deg,hsl(var(--surface-elevated)/0.98),hsl(var(--success-soft)/0.42)_52%,hsl(var(--surface)/0.94)_100%)] dark:border-moss-500/18',
+    negative: 'border-rouge-200/70 bg-[linear-gradient(145deg,hsl(var(--surface-elevated)/0.98),hsl(var(--destructive)/0.12)_50%,hsl(var(--surface)/0.94)_100%)] dark:border-rouge-500/18',
+    primary: 'border-primary/20 bg-[linear-gradient(145deg,hsl(var(--surface-elevated)/0.98),hsl(var(--accent-soft)/0.7)_52%,hsl(var(--surface)/0.94)_100%)]',
+    accent: 'border-blush-200/70 bg-[linear-gradient(145deg,hsl(var(--surface-elevated)/0.98),hsl(var(--accent)/0.26)_52%,hsl(var(--surface)/0.94)_100%)]',
+    studio: 'border-blush-200/70 bg-[linear-gradient(145deg,hsl(var(--surface-elevated)/0.98),hsl(var(--accent-soft)/0.46)_48%,hsl(var(--surface)/0.94)_100%)]',
   }
 
   const iconStyles = {
-    default: 'bg-[hsl(var(--surface-soft)/0.92)] text-muted-foreground',
-    positive: 'bg-moss-100 text-moss-600 dark:bg-moss-500/15 dark:text-moss-200',
-    negative: 'bg-rouge-100 text-rouge-500 dark:bg-rouge-500/15 dark:text-rouge-200',
-    primary: 'bg-iris-100 text-iris-600 dark:bg-iris-500/15 dark:text-iris-200',
-    accent: 'bg-blush-100 text-blush-600 dark:bg-blush-500/15 dark:text-blush-200',
-    studio: 'bg-gradient-to-br from-blush-100 to-iris-100 text-iris-700 dark:from-[#3e2631] dark:to-[#2a1a23] dark:text-rose-100',
+    default: 'bg-[hsl(var(--surface-soft)/0.92)] text-muted-foreground dark:bg-[hsl(var(--surface-soft)/0.92)] dark:text-[hsl(var(--text-secondary))]',
+    positive: 'bg-moss-100 text-moss-600 dark:bg-[#183028] dark:text-[#c2ddd0]',
+    negative: 'bg-rouge-100 text-rouge-500 dark:bg-[#311b22] dark:text-[#f0c3ca]',
+    primary: 'bg-iris-100 text-iris-600 dark:bg-[#212944] dark:text-[#d6dcfb]',
+    accent: 'bg-blush-100 text-blush-600 dark:bg-[#2b223b] dark:text-[#ead4f7]',
+    studio: 'bg-gradient-to-br from-blush-100 to-iris-100 text-iris-700 dark:from-[#2a3150] dark:to-[#1e2540] dark:text-[#dfe3ff]',
   }
 
   return (
     <div
       className={cn(
         'group rounded-[26px] border p-5 shadow-panel transition-all duration-300 hover:-translate-y-0.5 hover:shadow-panel-hover',
-        variantStyles[variant] || variantStyles.default,
+        !isDashboardCard && (variantStyles[variant] || variantStyles.default),
         className
       )}
     >
@@ -50,7 +52,7 @@ export default function MetricCard({
             <p
               className={cn(
                 'mt-3 text-[11px] font-semibold uppercase tracking-[0.14em]',
-                trendUp ? 'text-moss-600' : 'text-rouge-500'
+                trendUp ? 'text-moss-600 dark:text-[#c2ddd0]' : 'text-rouge-500 dark:text-[#f0c3ca]'
               )}
             >
               {trend}

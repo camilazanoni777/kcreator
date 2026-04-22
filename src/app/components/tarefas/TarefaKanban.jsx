@@ -14,10 +14,10 @@ const COLUMNS = [
 ]
 
 const PRIORITY_META = {
-  urgente: { label: 'Urgente', className: 'border-rouge-300 bg-rouge-100 text-rouge-700 dark:border-rouge-500/20 dark:bg-rouge-500/12 dark:text-rouge-200' },
-  alta: { label: 'Alta', className: 'border-[#f0b38b] bg-[#ffe2cf] text-[#b85a2b] dark:border-[#7a5638]/50 dark:bg-[#352315] dark:text-[#f5c9a8]' },
-  media: { label: 'Media', className: 'border-[#ecd08c] bg-[#fff1c7] text-[#9a6a16] dark:border-[#6f5b28]/50 dark:bg-[#312710] dark:text-[#f2dd9e]' },
-  baixa: { label: 'Baixa', className: 'border-[#dfb8a0] bg-[#f7e1d3] text-[#9b5d3c] dark:border-[#704b38]/50 dark:bg-[#2f1f18] dark:text-[#f0cbb7]' },
+  urgente: { label: 'Urgente', className: 'border-rouge-300 bg-rouge-100 text-rouge-700 dark:border-rouge-500/20 dark:bg-[#341a23] dark:text-[#f0c3ca]' },
+  alta: { label: 'Alta', className: 'border-[#f0b38b] bg-[#ffe2cf] text-[#b85a2b] dark:border-[#6c4a3f]/45 dark:bg-[#322117] dark:text-[#f2c8b2]' },
+  media: { label: 'Media', className: 'border-[#ecd08c] bg-[#fff1c7] text-[#9a6a16] dark:border-[#65522d]/45 dark:bg-[#2e2412] dark:text-[#ecd6a0]' },
+  baixa: { label: 'Baixa', className: 'border-[#dfb8a0] bg-[#f7e1d3] text-[#9b5d3c] dark:border-[#355143]/35 dark:bg-[#15261f] dark:text-[#c4ddd2]' },
 }
 
 export default function TarefaKanban({ tarefas }) {

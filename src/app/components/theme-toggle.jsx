@@ -27,7 +27,7 @@ export default function ThemeToggle({ className }) {
         className
       )}
     >
-      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[18px] bg-gradient-to-br from-[#f6ddd6] via-[#efced7] to-[#e6c0d1] text-[#8d536f] shadow-soft transition-colors dark:from-[#3c2632] dark:via-[#301f29] dark:to-[#24161f] dark:text-[#f6dbe6]">
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[18px] bg-gradient-to-br from-[#f6ddd6] via-[#efced7] to-[#e6c0d1] text-[#8d536f] shadow-soft transition-colors dark:from-[#242b40] dark:via-[#1a2031] dark:to-[#111726] dark:text-[#e8def4]">
         {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
       </span>
       <span className="min-w-0 flex-1">

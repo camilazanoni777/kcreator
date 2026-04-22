@@ -9,7 +9,8 @@ import React, {
   useState,
 } from 'react'
 
-const STORAGE_KEY = 'duetto-entities-v1'
+const STORAGE_KEY = 'kcreator-entities-v1'
+const LEGACY_STORAGE_KEY = 'duetto-entities-v1'
 
 const ENTITY_TYPES = [
   'Tarefa',
@@ -33,7 +34,7 @@ function emptyStore() {
 function loadStore() {
   if (typeof window === 'undefined') return emptyStore()
   try {
-    const raw = localStorage.getItem(STORAGE_KEY)
+    const raw = localStorage.getItem(STORAGE_KEY) ?? localStorage.getItem(LEGACY_STORAGE_KEY)
     if (!raw) return emptyStore()
     const parsed = JSON.parse(raw)
     const base = emptyStore()
@@ -49,6 +50,7 @@ function loadStore() {
 function saveStore(store) {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(store))
+    localStorage.removeItem(LEGACY_STORAGE_KEY)
   } catch {
     /* ignore */
   }

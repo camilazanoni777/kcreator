@@ -98,8 +98,8 @@ function SummaryPill({ icon: Icon, label, value, tone = 'default' }) {
   const tones = {
     default: 'border-border/80 bg-[linear-gradient(145deg,hsl(var(--surface-elevated)/0.96),hsl(var(--surface-soft)/0.9))]',
     accent: 'border-primary/20 bg-[linear-gradient(145deg,hsl(var(--surface-elevated)/0.98),hsl(var(--accent-soft)/0.72))]',
-    alert: 'border-rouge-200/70 bg-gradient-to-br from-white via-rouge-50/80 to-[#fff9f9] dark:border-rouge-500/15 dark:from-[#261619] dark:via-[#1d1113] dark:to-[#180d10]',
-    success: 'border-moss-200/70 bg-gradient-to-br from-white via-moss-50/80 to-[#fbfffc] dark:border-moss-500/15 dark:from-[#1b241f] dark:via-[#16201a] dark:to-[#121915]',
+    alert: 'border-rouge-200/70 bg-[linear-gradient(145deg,hsl(var(--surface-elevated)/0.98),hsl(var(--destructive)/0.1)_52%,hsl(var(--surface)/0.94)_100%)] dark:border-rouge-500/18',
+    success: 'border-moss-200/70 bg-[linear-gradient(145deg,hsl(var(--surface-elevated)/0.98),hsl(var(--success-soft)/0.42)_52%,hsl(var(--surface)/0.94)_100%)] dark:border-moss-500/18',
   }
 
   return (
@@ -566,7 +566,7 @@ export default function Agenda() {
                               isCurrentDay && 'bg-[linear-gradient(145deg,hsl(var(--surface-elevated)/0.98),hsl(var(--accent-soft)/0.72))]',
                               isSelected && 'ring-1 ring-foreground/15 ring-inset',
                               isDropActive && 'bg-iris-50 ring-1 ring-iris-300 ring-inset',
-                              wasRecentlyDropped && 'bg-gradient-to-br from-white via-moss-50/70 to-[#fafffb]'
+                              wasRecentlyDropped && 'bg-[linear-gradient(145deg,hsl(var(--surface-elevated)/0.98),hsl(var(--success-soft)/0.42)_52%,hsl(var(--surface)/0.94)_100%)]'
                             )}
                           >
                             <div className="mb-2.5 flex items-start justify-between gap-2">

@@ -112,7 +112,7 @@ export default function Analytics() {
               {metas.map(m => {
                 const percent = Math.min(((m.valor_atual || 0) / (m.valor_total || 1)) * 100, 100);
                 return (
-                  <div key={m.id} className="p-3 rounded-lg border border-border bg-secondary/30 space-y-2">
+                  <div key={m.id} className="space-y-2 rounded-lg border border-border bg-[linear-gradient(145deg,hsl(var(--surface-elevated)/0.96),hsl(var(--surface-soft)/0.88))] p-3">
                     <div className="flex items-start justify-between">
                       <div>
                         <p className="text-sm font-semibold">{m.titulo}</p>

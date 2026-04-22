@@ -312,7 +312,7 @@ export default function DashboardCasal() {
                             {formatBRL(item.valor_atual || 0)} de {formatBRL(item.valor_total || 0)}
                           </p>
                         </div>
-                        <span className="rounded-full bg-iris-100 px-3 py-1 text-xs font-semibold text-iris-700 dark:bg-[#442938] dark:text-rose-100">
+                        <span className="rounded-full bg-iris-100 px-3 py-1 text-xs font-semibold text-iris-700 dark:bg-[hsl(var(--surface-soft)/0.96)] dark:text-[hsl(var(--text-primary))]">
                           {progress}%
                         </span>
                       </div>
@@ -329,7 +329,7 @@ export default function DashboardCasal() {
               {ultimoCheckin ? (
                 <div className="surface-tile dashboard-tile rounded-[24px] p-4">
                   <div className="flex items-center gap-4">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-[20px] bg-gradient-to-br from-iris-100 to-sand-100 text-3xl shadow-soft dark:from-[#402934] dark:to-[#2b1a24]">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-[20px] bg-gradient-to-br from-iris-100 to-sand-100 text-3xl shadow-soft dark:from-[#28314a] dark:to-[#1d2436]">
                       <span>{moodMeta?.emoji}</span>
                     </div>
                     <div>

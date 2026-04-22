@@ -1,1 +1,1 @@
-export { default } from '@/pages/Dívidas'
+export { default } from '@/pages/Dividas'
