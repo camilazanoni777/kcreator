@@ -147,14 +147,14 @@ export default function Tarefas() {
             eyebrow="Ritmo do dia"
             variant="accent"
             action={
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/80 bg-white/85 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-foreground/70 shadow-sm">
+              <div className="surface-glass inline-flex items-center gap-2 rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-foreground/70">
                 <Sparkles className="h-3.5 w-3.5 text-blush-600" />
                 Planeje com clareza
               </div>
             }
             contentClassName="space-y-5"
           >
-            <div className="rounded-[24px] border border-white/80 bg-gradient-to-r from-white/95 via-white/88 to-blush-50/75 p-4 shadow-soft">
+            <div className="surface-hero rounded-[24px] p-4">
               <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
                 <div className="space-y-2">
                   <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
@@ -178,7 +178,7 @@ export default function Tarefas() {
                   ].map((item) => (
                     <div
                       key={item.label}
-                      className="rounded-2xl border border-border/60 bg-white/80 px-4 py-3 text-center shadow-sm backdrop-blur"
+                      className="surface-glass rounded-2xl px-4 py-3 text-center"
                     >
                       <p className="text-lg font-semibold tracking-[-0.03em] text-foreground">
                         {item.value}
@@ -202,7 +202,7 @@ export default function Tarefas() {
                     value={form.descricao}
                     onChange={(e) => setForm({ ...form, descricao: e.target.value })}
                     placeholder="Ex.: revisar campanhas, alinhar a casa ou resolver algo importante"
-                    className="h-12 rounded-2xl border-white/70 bg-white/90 shadow-sm"
+                    className="h-12 rounded-2xl border-border/70 bg-card/90 shadow-soft"
                     required
                   />
                 </div>
@@ -215,7 +215,7 @@ export default function Tarefas() {
                     type="date"
                     value={form.prazo}
                     onChange={(e) => setForm({ ...form, prazo: e.target.value })}
-                    className="h-12 rounded-2xl border-white/70 bg-white/90 shadow-sm"
+                    className="h-12 rounded-2xl border-border/70 bg-card/90 shadow-soft"
                   />
                 </div>
               </div>
@@ -229,7 +229,7 @@ export default function Tarefas() {
                     value={form.responsavel}
                     onValueChange={(value) => setForm({ ...form, responsavel: value })}
                   >
-                    <SelectTrigger className="h-11 rounded-2xl border-white/70 bg-white/90 shadow-sm">
+                    <SelectTrigger className="h-11 rounded-2xl border-border/70 bg-card/90 shadow-soft">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -250,7 +250,7 @@ export default function Tarefas() {
                     value={form.prioridade}
                     onValueChange={(value) => setForm({ ...form, prioridade: value })}
                   >
-                    <SelectTrigger className="h-11 rounded-2xl border-white/70 bg-white/90 shadow-sm">
+                    <SelectTrigger className="h-11 rounded-2xl border-border/70 bg-card/90 shadow-soft">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -268,7 +268,7 @@ export default function Tarefas() {
                     Area
                   </Label>
                   <Select value={form.area} onValueChange={(value) => setForm({ ...form, area: value })}>
-                    <SelectTrigger className="h-11 rounded-2xl border-white/70 bg-white/90 shadow-sm">
+                    <SelectTrigger className="h-11 rounded-2xl border-border/70 bg-card/90 shadow-soft">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -289,7 +289,7 @@ export default function Tarefas() {
                     type="time"
                     value={form.hora}
                     onChange={(e) => setForm({ ...form, hora: e.target.value })}
-                    className="h-11 rounded-2xl border-white/70 bg-white/90 shadow-sm"
+                    className="h-11 rounded-2xl border-border/70 bg-card/90 shadow-soft"
                   />
                 </div>
               </div>

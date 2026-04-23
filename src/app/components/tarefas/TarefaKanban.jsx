@@ -9,15 +9,15 @@ import { cn } from '@/lib/utils';
 const COLUMNS = [
   { key: 'pendente', label: 'Pendente', color: 'border-muted-foreground/30', headerBg: 'bg-muted', textColor: 'text-muted-foreground' },
   { key: 'andamento', label: 'Em Andamento', color: 'border-primary/30', headerBg: 'bg-primary/10', textColor: 'text-primary' },
-  { key: 'concluida', label: 'Concluido', color: 'border-green-500/30', headerBg: 'bg-green-500/10', textColor: 'text-green-400' },
+  { key: 'concluida', label: 'Concluido', color: 'border-success/30', headerBg: 'bg-success/12', textColor: 'text-success' },
   { key: 'adiada', label: 'Adiado', color: 'border-destructive/30', headerBg: 'bg-destructive/10', textColor: 'text-destructive' },
 ];
 
 const PRIORITY_META = {
-  urgente: { label: 'Urgente', className: 'border-rouge-300 bg-rouge-100 text-rouge-700' },
-  alta: { label: 'Alta', className: 'border-[#f0b38b] bg-[#ffe2cf] text-[#b85a2b]' },
-  media: { label: 'Media', className: 'border-[#ecd08c] bg-[#fff1c7] text-[#9a6a16]' },
-  baixa: { label: 'Baixa', className: 'border-[#dfb8a0] bg-[#f7e1d3] text-[#9b5d3c]' },
+  urgente: { label: 'Urgente', className: 'status-danger' },
+  alta: { label: 'Alta', className: 'status-warning' },
+  media: { label: 'Media', className: 'surface-soft text-warning' },
+  baixa: { label: 'Baixa', className: 'status-success' },
 };
 
 export default function TarefaKanban({ tarefas }) {

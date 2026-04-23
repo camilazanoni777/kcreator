@@ -9,11 +9,11 @@ interface MoodCardProps {
 
 export default function MoodCard({ score }: MoodCardProps) {
     const getMoodInfo = (score: number) => {
-        if (score >= 9) return { emoji: '🌟', label: 'Excelente', labelClass: 'text-emerald-600' }
-        if (score >= 7) return { emoji: '😊', label: 'Bom', labelClass: 'text-green-600' }
-        if (score >= 5) return { emoji: '😐', label: 'Neutro', labelClass: 'text-yellow-600' }
-        if (score >= 3) return { emoji: '😔', label: 'Baixo', labelClass: 'text-orange-600' }
-        return { emoji: '😢', label: 'Ruim', labelClass: 'text-red-600' }
+        if (score >= 9) return { emoji: '🌟', label: 'Excelente', labelClass: 'text-success' }
+        if (score >= 7) return { emoji: '😊', label: 'Bom', labelClass: 'text-success' }
+        if (score >= 5) return { emoji: '😐', label: 'Neutro', labelClass: 'text-warning' }
+        if (score >= 3) return { emoji: '😔', label: 'Baixo', labelClass: 'text-warning' }
+        return { emoji: '😢', label: 'Ruim', labelClass: 'text-destructive' }
     }
 
     const info = getMoodInfo(score)
@@ -24,10 +24,10 @@ export default function MoodCard({ score }: MoodCardProps) {
             className="card"
         >
             <div className="flex items-center justify-between mb-4">
-                <div className="p-2 rounded-lg bg-charcoal-50">
-                    <Smile size={20} className="text-charcoal-600" />
+                <div className="icon-shell icon-shell-primary p-2 rounded-lg">
+                    <Smile size={20} className="text-primary" />
                 </div>
-                <span className="text-sm text-charcoal-500">Humor de hoje</span>
+                <span className="text-sm text-muted-foreground">Humor de hoje</span>
             </div>
 
             <div className="flex items-center gap-4">
@@ -41,7 +41,7 @@ export default function MoodCard({ score }: MoodCardProps) {
                 </motion.span>
 
                 <div>
-                    <p className="text-3xl font-bold text-charcoal-800">{score}/10</p>
+                    <p className="text-3xl font-bold text-foreground">{score}/10</p>
                     <p className={`text-sm font-medium ${info.labelClass}`}>
                         {info.label}
                     </p>

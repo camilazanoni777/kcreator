@@ -9,22 +9,22 @@ export const PRIORITY_META = {
   urgente: {
     label: 'Urgente',
     icon: '●',
-    badge: 'border-rouge-200 bg-rouge-50 text-rouge-500',
+    badge: 'status-danger',
   },
   alta: {
     label: 'Alta',
     icon: '●',
-    badge: 'border-[#f0d0d0] bg-[#fff3f3] text-[#b96a6a]',
+    badge: 'surface-danger border-destructive/20 text-destructive',
   },
   media: {
     label: 'Média',
     icon: '●',
-    badge: 'border-sand-200 bg-sand-50 text-[#a67a2d]',
+    badge: 'status-warning',
   },
   baixa: {
     label: 'Baixa',
     icon: '●',
-    badge: 'border-moss-200 bg-moss-50 text-moss-600',
+    badge: 'status-success',
   },
 }
 
@@ -52,30 +52,47 @@ export function EmptyState({
   ctaHref,
   ctaLabel,
   tone = 'default',
+  compact = false,
+  className,
 }) {
   const toneStyles = {
-    default: 'border-border/70 bg-secondary/45',
-    accent: 'border-iris-200/70 bg-gradient-to-br from-white via-iris-50/80 to-blush-50/60',
-    danger: 'border-rouge-200/70 bg-gradient-to-br from-white via-rouge-50 to-[#fff9f9]',
-    studio: 'border-blush-200/70 bg-gradient-to-br from-white via-blush-50/70 to-iris-50/50',
+    default: 'surface-soft',
+    accent: 'surface-accent',
+    danger: 'surface-danger',
+    studio: 'surface-studio',
   }
 
   const iconStyles = {
-    default: 'bg-white text-iris-600',
-    accent: 'bg-iris-100 text-iris-600',
-    danger: 'bg-rouge-100 text-rouge-500',
-    studio: 'bg-gradient-to-br from-blush-100 to-iris-100 text-iris-700',
+    default: 'icon-shell icon-shell-primary',
+    accent: 'icon-shell icon-shell-primary',
+    danger: 'icon-shell icon-shell-danger',
+    studio: 'icon-shell icon-shell-studio',
   }
 
   return (
-    <div className={cn('rounded-[24px] border p-5', toneStyles[tone])}>
-      <div className={cn('mb-4 flex h-12 w-12 items-center justify-center rounded-2xl shadow-sm', iconStyles[tone])}>
+    <div
+      className={cn(
+        'rounded-[24px] border',
+        compact ? 'p-4' : 'p-5',
+        toneStyles[tone],
+        className
+      )}
+    >
+      <div
+        className={cn(
+          'flex items-center justify-center rounded-2xl shadow-sm',
+          compact ? 'mb-3 h-10 w-10' : 'mb-4 h-12 w-12',
+          iconStyles[tone]
+        )}
+      >
         <Icon className="h-5 w-5" />
       </div>
       <h3 className="text-sm font-semibold text-foreground">{title}</h3>
-      <p className="mt-2 text-sm leading-6 text-muted-foreground">{description}</p>
+      <p className={cn('text-sm text-muted-foreground', compact ? 'mt-1.5 leading-5' : 'mt-2 leading-6')}>
+        {description}
+      </p>
       {ctaHref && ctaLabel ? (
-        <Button asChild variant="outline" size="sm" className="mt-4">
+        <Button asChild variant="outline" size="sm" className={compact ? 'mt-3' : 'mt-4'}>
           <Link href={ctaHref}>
             {ctaLabel}
             <ArrowRight className="h-4 w-4" />
@@ -99,7 +116,7 @@ export function PriorityBadge({ priority }) {
 
 export function RowStat({ label, value, helper, valueClassName }) {
   return (
-    <div className="flex items-center justify-between gap-3 rounded-[20px] border border-border/60 bg-white/70 px-4 py-3">
+    <div className="surface-glass flex items-center justify-between gap-3 rounded-[20px] px-4 py-3">
       <div>
         <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
           {label}
@@ -124,16 +141,16 @@ export function SoftAction({ href, children }) {
 
 export function SectionPill({ icon: Icon, label, value, tone = 'default' }) {
   const toneStyles = {
-    default: 'border-border/70 bg-white/80 text-foreground',
-    accent: 'border-iris-200/70 bg-iris-50 text-iris-700',
-    blush: 'border-blush-200/70 bg-blush-50 text-blush-600',
-    success: 'border-moss-200/70 bg-moss-50 text-moss-600',
-    danger: 'border-rouge-200/70 bg-rouge-50 text-rouge-500',
+    default: 'surface-glass text-foreground',
+    accent: 'surface-accent text-primary',
+    blush: 'surface-studio text-accent-foreground',
+    success: 'surface-success text-success',
+    danger: 'surface-danger text-destructive',
   }
 
   return (
     <div className={cn('flex items-center gap-3 rounded-[22px] border px-4 py-3', toneStyles[tone])}>
-      <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white/80 shadow-sm">
+      <div className="icon-shell h-10 w-10">
         <Icon className="h-4 w-4" />
       </div>
       <div>

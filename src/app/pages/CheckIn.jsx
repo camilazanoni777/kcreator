@@ -13,7 +13,7 @@ import { ptBR } from 'date-fns/locale';
 import { cn } from '@/lib/utils';
 
 const HUMORES = [
-  { value: 'otimo', label: 'Ótimo', emoji: '😄', color: 'border-green-400/40 bg-green-400/8 text-green-400' },
+  { value: 'otimo', label: 'Ótimo', emoji: '😄', color: 'border-success/35 bg-success/10 text-success' },
   { value: 'bom', label: 'Bom', emoji: '🙂', color: 'border-primary/40 bg-primary/8 text-primary' },
   { value: 'neutro', label: 'Neutro', emoji: '😐', color: 'border-muted-foreground/30 bg-secondary text-muted-foreground' },
   { value: 'cansado', label: 'Cansado', emoji: '😴', color: 'border-accent/40 bg-accent/8 text-accent' },
@@ -104,7 +104,7 @@ export default function CheckIn() {
             </div>
           </BentoCard>
         ) : (
-          <div className="rounded-2xl border border-green-500/20 bg-green-500/5 p-5">
+          <div className="surface-success rounded-2xl p-5">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <span className="text-2xl">{HUMORES.find(h => h.value === checkinHoje.humor)?.emoji}</span>

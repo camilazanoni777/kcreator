@@ -24,7 +24,7 @@ const CATEGORIAS_ENTRADA = [
   'Emprestado', 'Bônus', 'Venda', 'Bonificação', 'Presente', 'Outros'
 ];
 const RESPONSAVEIS = ['Victor', 'Camila', 'Ambos'];
-const COLORS = ['hsl(217,91%,60%)', 'hsl(330,80%,65%)', 'hsl(160,60%,45%)', 'hsl(43,96%,58%)', 'hsl(280,65%,60%)'];
+const COLORS = ['hsl(var(--chart-1))', 'hsl(var(--chart-2))', 'hsl(var(--chart-3))', 'hsl(var(--chart-4))', 'hsl(var(--chart-5))'];
 
 export default function Financeiro() {
   const { data: salarios } = useEntityList('Salario');
@@ -99,9 +99,9 @@ export default function Financeiro() {
   };
 
   const statusStyles = {
-    pago: 'bg-green-500/20 text-green-400 border-green-500/30',
-    hoje: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30',
-    atrasado: 'bg-red-500/20 text-red-400 border-red-500/30',
+    pago: 'status-success',
+    hoje: 'status-warning',
+    atrasado: 'status-danger',
     pendente: 'bg-muted text-muted-foreground border-border',
   };
 
@@ -114,11 +114,11 @@ export default function Financeiro() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <BentoCard title="Balanço do Mês" icon={Scale}>
             <div className="text-center space-y-3">
-              <p className={`text-3xl font-bold ${saldo >= 0 ? 'text-green-400' : 'text-destructive'}`}>{formatBRL(saldo)}</p>
+              <p className={`text-3xl font-bold ${saldo >= 0 ? 'text-success' : 'text-destructive'}`}>{formatBRL(saldo)}</p>
               <div className="flex justify-around text-sm">
                 <div>
                   <span className="text-xs text-muted-foreground block">Entradas</span>
-                  <span className="text-green-400 font-semibold">+{formatBRL(totalCasa)}</span>
+                  <span className="text-success font-semibold">+{formatBRL(totalCasa)}</span>
                 </div>
                 <div>
                   <span className="text-xs text-muted-foreground block">Saídas</span>
@@ -138,7 +138,7 @@ export default function Financeiro() {
                   <Pie data={chartData} cx="50%" cy="50%" innerRadius={40} outerRadius={65} dataKey="value" paddingAngle={3}>
                     {chartData.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
                   </Pie>
-                  <Tooltip formatter={(val) => formatBRL(val)} contentStyle={{ background: 'hsl(230,15%,11%)', border: '1px solid hsl(230,15%,18%)', borderRadius: '8px', color: '#fff' }} />
+                  <Tooltip formatter={(val) => formatBRL(val)} contentStyle={{ background: 'hsl(var(--popover))', border: '1px solid hsl(var(--border))', borderRadius: '12px', color: 'hsl(var(--popover-foreground))' }} />
                 </PieChart>
               </ResponsiveContainer>
             ) : (
@@ -175,7 +175,7 @@ export default function Financeiro() {
                   </Select>
                 </div>
               </div>
-              <Button type="submit" className="w-full bg-green-600 hover:bg-green-700 text-white">Registrar Entrada</Button>
+              <Button type="submit" className="w-full bg-success text-success-foreground hover:bg-success/90">Registrar Entrada</Button>
             </form>
           </BentoCard>
 
@@ -187,16 +187,16 @@ export default function Financeiro() {
               <div className="space-y-2 max-h-56 overflow-y-auto">
                 <div className="flex justify-between text-xs text-muted-foreground mb-2 font-medium px-1">
                   <span>Total extras:</span>
-                  <span className="text-green-400 font-bold">{formatBRL(totalEntradasExtra)}</span>
+                  <span className="text-success font-bold">{formatBRL(totalEntradasExtra)}</span>
                 </div>
                 {entradas.map(e => (
-                  <div key={e.id} className="flex items-center justify-between p-2.5 rounded-lg border border-green-500/20 bg-green-500/5">
+                  <div key={e.id} className="status-success flex items-center justify-between rounded-lg border p-2.5">
                     <div className="flex-1 min-w-0">
                       <p className="text-xs font-medium truncate">{e.descricao}</p>
                       <p className="text-[10px] text-muted-foreground">{e.responsavel} · {e.categoria}</p>
                     </div>
                     <div className="flex items-center gap-2 shrink-0">
-                      <span className="text-sm font-semibold text-green-400">+{formatBRL(e.valor)}</span>
+                      <span className="text-sm font-semibold text-success">+{formatBRL(e.valor)}</span>
                       <Button size="icon" variant="ghost" className="h-6 w-6 text-destructive" onClick={() => entradaMut.remove.mutate(e.id)}>
                         <Trash2 className="w-3 h-3" />
                       </Button>
@@ -311,7 +311,7 @@ export default function Financeiro() {
                     <div className="flex items-center gap-2">
                       <span className="text-sm font-semibold">{formatBRL(c.valor)}</span>
                       {c.status !== 'pago' && (
-                        <Button size="sm" variant="ghost" className="h-7 text-xs text-green-400" onClick={() => contaMut.update.mutate({ id: c.id, data: { status: 'pago' } })}>
+                        <Button size="sm" variant="ghost" className="h-7 text-xs text-success" onClick={() => contaMut.update.mutate({ id: c.id, data: { status: 'pago' } })}>
                           <Check className="w-3 h-3 mr-1" /> Pagar
                         </Button>
                       )}

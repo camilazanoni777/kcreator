@@ -30,14 +30,14 @@ export default function Sidebar({ currentView, onViewChange, isOpen, onClose }: 
             {/* Mobile Overlay */}
             {isOpen && (
                 <div
-                    className="fixed inset-0 bg-charcoal-900/50 z-40 lg:hidden"
+                    className="fixed inset-0 z-40 bg-foreground/35 backdrop-blur-sm lg:hidden"
                     onClick={onClose}
                 />
             )}
 
             {/* Sidebar: CSS transform on small screens only; lg: always visible (framer x would hide the bar on desktop when isOpen is false) */}
             <aside
-                className={`fixed left-0 top-0 h-full w-64 bg-white border-r border-charcoal-100 z-50 transition-transform duration-300 ease-out lg:static lg:z-auto lg:translate-x-0 ${isOpen ? 'translate-x-0 shadow-2xl lg:shadow-none' : '-translate-x-full'
+                className={`fixed left-0 top-0 z-50 h-full w-64 border-r border-border bg-card transition-transform duration-300 ease-out lg:static lg:z-auto lg:translate-x-0 ${isOpen ? 'translate-x-0 shadow-2xl lg:shadow-none' : '-translate-x-full'
                     }`}
             >
                 <div className="p-6 h-full flex flex-col">
@@ -47,12 +47,12 @@ export default function Sidebar({ currentView, onViewChange, isOpen, onClose }: 
                             <div className="w-10 h-10 rounded-xl gradient-accent flex items-center justify-center">
                                 <span className="text-white font-bold text-xl">L</span>
                             </div>
-                            <span className="font-serif text-xl font-bold text-charcoal-800">
+                            <span className="font-serif text-xl font-bold text-foreground">
                                 Lumina
                             </span>
                         </div>
-                        <button onClick={onClose} className="lg:hidden p-2 hover:bg-charcoal-50 rounded-lg">
-                            <X size={20} className="text-charcoal-600" />
+                        <button onClick={onClose} className="lg:hidden rounded-lg p-2 hover:bg-secondary">
+                            <X size={20} className="text-muted-foreground" />
                         </button>
                     </div>
 
@@ -71,7 +71,7 @@ export default function Sidebar({ currentView, onViewChange, isOpen, onClose }: 
                                     }}
                                     className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${isActive
                                             ? 'gradient-accent text-white shadow-lg shadow-primary-500/25'
-                                            : 'text-charcoal-600 hover:bg-charcoal-50'
+                                            : 'text-muted-foreground hover:bg-secondary'
                                         }`}
                                 >
                                     <Icon size={20} />
@@ -82,8 +82,8 @@ export default function Sidebar({ currentView, onViewChange, isOpen, onClose }: 
                     </nav>
 
                     {/* Bottom Actions */}
-                    <div className="space-y-2 pt-6 border-t border-charcoal-100">
-                        <button className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-charcoal-600 hover:bg-charcoal-50 transition-colors">
+                    <div className="space-y-2 pt-6 border-t border-border">
+                        <button className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-muted-foreground hover:bg-secondary transition-colors">
                             <Settings size={20} />
                             <span className="font-medium">Configurações</span>
                         </button>

@@ -16,19 +16,19 @@ export default function BentoCard({
   const resolvedVariant = variant || (danger ? 'danger' : accent ? 'accent' : 'default')
 
   const shellStyles = {
-    default: 'border-border/80 bg-white/95 shadow-panel',
-    accent: 'border-iris-200/80 bg-gradient-to-br from-white via-iris-50/80 to-blush-50/90 shadow-panel',
-    danger: 'border-rouge-200/80 bg-gradient-to-br from-white via-rouge-50 to-[#fff8f8] shadow-panel',
-    studio: 'border-blush-200/90 bg-gradient-to-br from-white via-blush-50/75 to-iris-50/60 shadow-panel',
-    success: 'border-moss-200/80 bg-gradient-to-br from-white via-moss-50/80 to-[#f8fff9] shadow-panel',
+    default: 'surface-base',
+    accent: 'surface-accent',
+    danger: 'surface-danger',
+    studio: 'surface-studio',
+    success: 'surface-success',
   }
 
   const iconStyles = {
-    default: 'bg-iris-100 text-iris-600',
-    accent: 'bg-blush-100 text-blush-600',
-    danger: 'bg-rouge-100 text-rouge-500',
-    studio: 'bg-gradient-to-br from-blush-100 to-iris-100 text-iris-700',
-    success: 'bg-moss-100 text-moss-600',
+    default: 'icon-shell icon-shell-primary',
+    accent: 'icon-shell icon-shell-accent',
+    danger: 'icon-shell icon-shell-danger',
+    studio: 'icon-shell icon-shell-studio',
+    success: 'icon-shell icon-shell-success',
   }
 
   return (

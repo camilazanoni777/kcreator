@@ -96,10 +96,10 @@ function sortTasksByTime(tasks) {
 
 function SummaryPill({ icon: Icon, label, value, tone = 'default' }) {
   const tones = {
-    default: 'border-border/80 bg-white/94',
-    accent: 'border-iris-200/80 bg-gradient-to-br from-white via-iris-50/85 to-blush-50/65',
-    alert: 'border-rouge-200/80 bg-gradient-to-br from-white via-rouge-50/80 to-[#fff9f9]',
-    success: 'border-moss-200/80 bg-gradient-to-br from-white via-moss-50/80 to-[#fbfffc]',
+    default: 'surface-base',
+    accent: 'surface-accent',
+    alert: 'surface-danger',
+    success: 'surface-success',
   }
 
   return (
@@ -113,7 +113,7 @@ function SummaryPill({ icon: Icon, label, value, tone = 'default' }) {
             {value}
           </p>
         </div>
-        <div className="rounded-2xl bg-white/90 p-2 text-iris-600 shadow-sm">
+        <div className="icon-shell icon-shell-primary rounded-2xl p-2">
           <Icon className="h-4 w-4" />
         </div>
       </div>
@@ -350,7 +350,7 @@ export default function Agenda() {
             }
           >
             <div className="space-y-4">
-              <div className="flex flex-col gap-4 rounded-[26px] border border-border/80 bg-gradient-to-r from-white via-white to-secondary/55 p-5 lg:flex-row lg:items-center lg:justify-between">
+              <div className="surface-glass flex flex-col gap-4 rounded-[26px] p-5 lg:flex-row lg:items-center lg:justify-between">
                 <div className="space-y-1.5">
                   <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
                     Mês atual
@@ -400,7 +400,7 @@ export default function Agenda() {
               </div>
 
               <div className="grid gap-3 xl:grid-cols-[1.3fr_1fr_1fr]">
-                <div className="rounded-[24px] border border-border/80 bg-white/94 p-4 shadow-soft">
+                <div className="surface-base rounded-[24px] p-4">
                   <div className="mb-3 flex items-center gap-2">
                     <div className="rounded-2xl bg-iris-100 p-2 text-iris-600">
                       <Plus className="h-4 w-4" />
@@ -433,7 +433,7 @@ export default function Agenda() {
                   </form>
                 </div>
 
-                <div className="rounded-[24px] border border-border/80 bg-white/94 p-4 shadow-soft">
+                <div className="surface-base rounded-[24px] p-4">
                   <div className="mb-3 flex items-center justify-between gap-3">
                     <div className="flex items-center gap-2">
                       <div className="rounded-2xl bg-blush-100 p-2 text-blush-700">
@@ -466,7 +466,7 @@ export default function Agenda() {
                           onDragStart={(event) => handleDragStart(event, task.id)}
                           onDragEnd={handleDragEnd}
                           className={cn(
-                            'cursor-grab rounded-[18px] border border-border/70 bg-secondary/35 px-3 py-2 transition-all duration-200 hover:-translate-y-0.5 hover:border-iris-200 hover:bg-white hover:shadow-soft active:cursor-grabbing',
+                            'cursor-grab rounded-[18px] border border-border/70 bg-secondary/35 px-3 py-2 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/18 hover:bg-card hover:shadow-soft active:cursor-grabbing',
                             draggedTaskId === task.id && 'opacity-60 shadow-none'
                           )}
                         >
@@ -482,7 +482,7 @@ export default function Agenda() {
                   </div>
                 </div>
 
-                <div className="rounded-[24px] border border-border/80 bg-white/94 p-4 shadow-soft">
+                <div className="surface-base rounded-[24px] p-4">
                   <div className="mb-3 flex items-center gap-2">
                     <div className="rounded-2xl bg-secondary p-2 text-iris-600">
                       <CalendarCheck2 className="h-4 w-4" />
@@ -523,7 +523,7 @@ export default function Agenda() {
                   {WEEKDAYS.map((weekday) => (
                     <div
                       key={weekday}
-                      className="bg-white/96 px-2 py-3 text-center text-[11px] font-semibold uppercase tracking-[0.16em] text-foreground/72"
+                      className="bg-card/96 px-2 py-3 text-center text-[11px] font-semibold uppercase tracking-[0.16em] text-foreground/72"
                     >
                       {weekday}
                     </div>
@@ -561,12 +561,12 @@ export default function Agenda() {
                             onDrop={(event) => handleDropTask(event, day)}
                             style={{ minHeight: `${DAY_CELL_MIN_HEIGHT}px` }}
                             className={cn(
-                              'group flex flex-col bg-white px-2.5 py-2.5 text-left transition-all duration-200 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-iris-200/40',
+                              'group flex flex-col bg-card px-2.5 py-2.5 text-left transition-all duration-200 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/18',
                               !isInCurrentMonth && 'bg-secondary/30',
-                              isCurrentDay && 'bg-gradient-to-br from-white via-iris-50/80 to-blush-50/55',
+                              isCurrentDay && 'surface-accent',
                               isSelected && 'ring-1 ring-foreground/15 ring-inset',
                               isDropActive && 'bg-iris-50 ring-1 ring-iris-300 ring-inset',
-                              wasRecentlyDropped && 'bg-gradient-to-br from-white via-moss-50/70 to-[#fafffb]'
+                              wasRecentlyDropped && 'surface-success'
                             )}
                           >
                             <div className="mb-2.5 flex items-start justify-between gap-2">
@@ -638,7 +638,7 @@ export default function Agenda() {
                                   className={cn(
                                     'rounded-full px-2 py-1 text-[9px] font-semibold uppercase tracking-[0.14em] transition-all',
                                     isDropActive
-                                      ? 'bg-white text-iris-700 shadow-sm'
+                                      ? 'bg-card text-primary shadow-soft'
                                       : isSelected
                                         ? 'bg-secondary text-muted-foreground'
                                         : 'opacity-0 group-hover:bg-secondary/65 group-hover:text-muted-foreground group-hover:opacity-100'

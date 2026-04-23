@@ -11,21 +11,21 @@ export default function CoupleConnection({ alignmentScore }: CoupleConnectionPro
     return (
         <div className="card">
             <div className="flex items-center justify-between mb-4">
-                <div className="p-2 rounded-lg bg-rose-100">
-                    <Heart size={20} className="text-rose-600" />
+                <div className="icon-shell icon-shell-accent p-2 rounded-lg">
+                    <Heart size={20} className="text-accent-foreground" />
                 </div>
-                <span className="text-sm text-charcoal-500">Conexão</span>
+                <span className="text-sm text-muted-foreground">Conexão</span>
             </div>
 
             <div className="text-center">
-                <p className="text-3xl font-bold text-charcoal-800 mb-2">
+                <p className="text-3xl font-bold text-foreground mb-2">
                     {alignmentScore}%
                 </p>
-                <p className="text-sm text-charcoal-500 mb-4">
+                <p className="text-sm text-muted-foreground mb-4">
                     Nível de alinhamento
                 </p>
 
-                <div className="relative h-2 bg-charcoal-100 rounded-full overflow-hidden">
+                <div className="relative h-2 bg-secondary rounded-full overflow-hidden">
                     <motion.div
                         initial={{ width: 0 }}
                         animate={{ width: `${alignmentScore}%` }}
@@ -36,10 +36,10 @@ export default function CoupleConnection({ alignmentScore }: CoupleConnectionPro
 
                 <div className="flex justify-between mt-3">
                     <div className="flex -space-x-2">
-                        <div className="w-8 h-8 rounded-full bg-primary-200 border-2 border-white" />
-                        <div className="w-8 h-8 rounded-full bg-lavender-200 border-2 border-white" />
+                        <div className="w-8 h-8 rounded-full bg-primary/20 border-2 border-card" />
+                        <div className="w-8 h-8 rounded-full bg-accent/65 border-2 border-card" />
                     </div>
-                    <span className="text-xs text-charcoal-500">
+                    <span className="text-xs text-muted-foreground">
                         Check-in há 2 dias
                     </span>
                 </div>

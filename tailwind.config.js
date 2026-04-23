@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -42,10 +43,22 @@ module.exports = {
           foreground: 'hsl(var(--success-foreground))',
           soft: 'hsl(var(--success-soft))',
         },
+        info: {
+          DEFAULT: 'hsl(var(--info))',
+          foreground: 'hsl(var(--info-foreground))',
+          soft: 'hsl(var(--info-soft))',
+        },
         warning: {
           DEFAULT: 'hsl(var(--warning))',
           foreground: 'hsl(var(--warning-foreground))',
           soft: 'hsl(var(--warning-soft))',
+        },
+        chart: {
+          1: 'hsl(var(--chart-1))',
+          2: 'hsl(var(--chart-2))',
+          3: 'hsl(var(--chart-3))',
+          4: 'hsl(var(--chart-4))',
+          5: 'hsl(var(--chart-5))',
         },
         iris: {
           50: '#f8f3f6',
@@ -164,11 +177,11 @@ module.exports = {
         '3xl': '2rem',
       },
       boxShadow: {
-        'soft': '0 18px 40px rgba(74, 56, 68, 0.06)',
-        'soft-lg': '0 30px 60px rgba(74, 56, 68, 0.1)',
-        'panel': '0 10px 30px rgba(76, 53, 66, 0.08), 0 2px 8px rgba(76, 53, 66, 0.04)',
-        'panel-hover': '0 24px 44px rgba(76, 53, 66, 0.12), 0 8px 18px rgba(76, 53, 66, 0.06)',
-        'glow': '0 0 40px rgba(133, 105, 120, 0.18)',
+        'soft': 'var(--shadow-soft)',
+        'soft-lg': 'var(--shadow-panel)',
+        'panel': 'var(--shadow-panel)',
+        'panel-hover': 'var(--shadow-panel-hover)',
+        'glow': 'var(--shadow-glow)',
       },
     },
   },

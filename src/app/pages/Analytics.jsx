@@ -55,7 +55,7 @@ export default function Analytics() {
 
           <BentoCard title="Áreas Negligenciadas" icon={AlertTriangle} danger>
             {negligenciadas.length === 0 ? (
-              <p className="text-xs text-green-400 text-center mt-2">Todas as áreas cobertas ✅</p>
+              <p className="text-xs text-success text-center mt-2">Todas as áreas cobertas ✅</p>
             ) : (
               <div className="space-y-1 mt-1">
                 {negligenciadas.map(a => (

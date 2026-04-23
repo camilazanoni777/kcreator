@@ -37,18 +37,18 @@ export default function HabitTracker() {
                             onClick={() => toggleHabit(habit.id)}
                             className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all ${habit.completedToday
                                     ? 'gradient-accent text-white'
-                                    : 'bg-charcoal-100 text-charcoal-400 hover:bg-charcoal-200'
+                                    : 'bg-secondary text-muted-foreground hover:bg-secondary/80'
                                 }`}
                         >
                             <Check size={16} strokeWidth={3} />
                         </button>
-                        <span className={`font-medium ${habit.completedToday ? 'text-charcoal-800' : 'text-charcoal-600'
+                        <span className={`font-medium ${habit.completedToday ? 'text-foreground' : 'text-muted-foreground'
                             }`}>
                             {habit.title}
                         </span>
                     </div>
 
-                    <div className="flex items-center gap-1 text-orange-500">
+                    <div className="flex items-center gap-1 text-warning">
                         <Flame size={14} />
                         <span className="text-sm font-medium">{habit.streak}</span>
                     </div>

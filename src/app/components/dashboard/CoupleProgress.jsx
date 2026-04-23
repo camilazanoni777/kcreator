@@ -28,8 +28,8 @@ export default function CoupleProgress({ tarefas, metas }) {
       label: 'Sequência',
       value: `${sequencia} dias`,
       sub: 'de organização',
-      color: 'text-orange-400',
-      bg: 'bg-orange-400/10',
+      color: 'text-warning',
+      bg: 'bg-warning/12',
     },
     {
       icon: CheckCircle2,
@@ -65,7 +65,7 @@ export default function CoupleProgress({ tarefas, metas }) {
           <p className="text-xs text-muted-foreground mt-0.5">Vocês estão construindo constância juntos 🤍</p>
         </div>
         <div className="flex items-center gap-1.5 bg-primary/10 px-3 py-1.5 rounded-full">
-          <Flame className="w-3.5 h-3.5 text-orange-400" />
+          <Flame className="w-3.5 h-3.5 text-warning" />
           <span className="text-xs font-semibold text-foreground">{sequencia} dias</span>
         </div>
       </div>
