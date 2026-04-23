@@ -15,12 +15,12 @@ export default function RootLayout({
 }) {
     return (
         <html lang="pt-BR" suppressHydrationWarning data-scroll-behavior="smooth">
-            <body className="font-sans antialiased">
+            <body className="bg-background font-sans text-foreground antialiased">
                 <ThemeProvider
                     attribute="class"
-                    defaultTheme="light"
+                    defaultTheme="system"
                     enableSystem
-                    disableTransitionOnChange
+                    storageKey="lumina-theme"
                 >
                     {children}
                     <Toaster richColors closeButton position="top-center" />

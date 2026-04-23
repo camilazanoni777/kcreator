@@ -14,8 +14,8 @@ export default function HeroCard({
   rightNote,
 }) {
   return (
-    <div className="relative overflow-hidden rounded-[36px] border border-iris-200/70 bg-gradient-to-br from-white via-iris-50/80 to-blush-50/90 p-6 shadow-panel sm:p-8">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(139,92,246,0.16),transparent_24%),radial-gradient(circle_at_bottom_left,rgba(246,216,240,0.24),transparent_28%)]" />
+    <div className="surface-hero relative overflow-hidden rounded-[36px] p-6 sm:p-8">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(139,92,246,0.12),transparent_24%),radial-gradient(circle_at_bottom_left,rgba(246,216,240,0.16),transparent_28%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(208,172,190,0.16),transparent_24%),radial-gradient(circle_at_bottom_left,rgba(133,105,120,0.18),transparent_28%)]" />
       <div className="relative z-10 grid gap-6 lg:grid-cols-[minmax(0,1.35fr)_320px]">
         <div className="space-y-5">
           {eyebrow ? <p className="kicker">{eyebrow}</p> : null}
@@ -29,7 +29,7 @@ export default function HeroCard({
           </div>
           {action ? <div>{action}</div> : null}
           {progressLabel != null && progressValue != null && (
-            <div className="rounded-[28px] border border-white/70 bg-white/70 p-4 shadow-sm backdrop-blur-sm">
+            <div className="surface-glass rounded-[28px] p-4">
               <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
                 <div>
                   <p className="text-sm font-semibold text-foreground">{progressLabel}</p>
@@ -41,7 +41,7 @@ export default function HeroCard({
                   {progressValue}%
                 </div>
               </div>
-              <div className="h-3 overflow-hidden rounded-full bg-white/80">
+              <div className="h-3 overflow-hidden rounded-full bg-card/80">
                 <div
                   className="h-full rounded-full bg-gradient-to-r from-iris-500 via-iris-400 to-blush-300 transition-all duration-700"
                   style={{ width: `${Math.min(100, progressValue)}%` }}
@@ -54,7 +54,7 @@ export default function HeroCard({
               {stats.map((s) => (
                 <div
                   key={s.label}
-                  className="rounded-[22px] border border-white/70 bg-white/65 px-4 py-3 shadow-sm backdrop-blur-sm"
+                  className="surface-glass rounded-[22px] px-4 py-3"
                 >
                   <p className="mb-1 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground/80">
                     {s.label}
@@ -67,12 +67,12 @@ export default function HeroCard({
         </div>
         <div className="flex flex-col gap-4">
           <div className="grid grid-cols-2 gap-3">
-            <div className="rounded-[28px] border border-white/70 bg-white/78 p-5 shadow-sm backdrop-blur-sm">
+            <div className="surface-glass rounded-[28px] p-5">
               <p className="kicker mb-2">Streak</p>
               <p className="stat-number text-3xl">{streak ?? 0}</p>
               <p className="mt-2 text-xs text-muted-foreground">consistência em foco</p>
             </div>
-            <div className="rounded-[28px] border border-white/70 bg-white/78 p-5 shadow-sm backdrop-blur-sm">
+            <div className="surface-glass rounded-[28px] p-5">
               <p className="kicker mb-2">Nível</p>
               <p className="text-base font-semibold tracking-[-0.02em] text-foreground">
                 {nivel || 'Em construção'}
@@ -80,7 +80,7 @@ export default function HeroCard({
               <p className="mt-2 text-xs text-muted-foreground">ritmo do seu ciclo</p>
             </div>
           </div>
-          <div className="rounded-[30px] border border-white/70 bg-white/80 p-5 shadow-sm backdrop-blur-sm">
+          <div className="surface-glass rounded-[30px] p-5">
             <p className="kicker mb-2">Resumo da semana</p>
             <p className="text-sm leading-6 text-foreground/75">
               {rightNote || subtitle}

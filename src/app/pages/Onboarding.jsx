@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { usePlan } from '@/lib/PlanContext';
 import { cn } from '@/lib/utils';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 const STEP_PLAN = 0;
 const STEP_NAME = 1;
@@ -50,6 +51,10 @@ export default function Onboarding() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col items-center justify-center px-4">
+      <div className="fixed right-4 top-4 z-40">
+        <ThemeToggle compact />
+      </div>
+
       {/* Logo */}
       <div className="flex items-center gap-2 mb-10">
         <div className="w-9 h-9 rounded-xl bg-primary/20 flex items-center justify-center">

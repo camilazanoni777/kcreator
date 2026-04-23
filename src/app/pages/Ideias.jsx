@@ -17,8 +17,8 @@ const TIPO_EMOJI = {
 
 const STATUS_CONFIG = {
   rascunho: { label: 'Rascunho', color: 'text-muted-foreground', bg: 'bg-secondary/50' },
-  aprovada: { label: 'Aprovada ✓', color: 'text-green-400', bg: 'bg-green-500/8 border border-green-500/15' },
-  em_producao: { label: 'Em produção', color: 'text-blue-400', bg: 'bg-blue-500/8 border border-blue-500/15' },
+  aprovada: { label: 'Aprovada ✓', color: 'text-success', bg: 'status-success' },
+  em_producao: { label: 'Em produção', color: 'text-info', bg: 'status-info' },
   descartada: { label: 'Descartada', color: 'text-muted-foreground/40', bg: 'bg-muted/20' },
 };
 
@@ -68,12 +68,12 @@ export default function Ideias() {
             <p className="text-2xl font-bold stat-number">{ideias.length}</p>
             <p className="text-[10px] text-muted-foreground/50 mt-1 uppercase tracking-widest">Total</p>
           </div>
-          <div className="rounded-2xl border border-green-500/15 bg-green-500/5 p-4 text-center">
-            <p className="text-2xl font-bold text-green-400 stat-number">{aprovadas}</p>
+          <div className="surface-success rounded-2xl p-4 text-center">
+            <p className="text-2xl font-bold text-success stat-number">{aprovadas}</p>
             <p className="text-[10px] text-muted-foreground/50 mt-1 uppercase tracking-widest">Aprovadas</p>
           </div>
-          <div className="rounded-2xl border border-blue-500/15 bg-blue-500/5 p-4 text-center">
-            <p className="text-2xl font-bold text-blue-400 stat-number">{emProducao}</p>
+          <div className="surface-info rounded-2xl p-4 text-center">
+            <p className="text-2xl font-bold text-info stat-number">{emProducao}</p>
             <p className="text-[10px] text-muted-foreground/50 mt-1 uppercase tracking-widest">Em produção</p>
           </div>
         </div>
@@ -180,7 +180,7 @@ export default function Ideias() {
                         <span className={cn('text-[10px] font-medium px-2 py-0.5 rounded-full', sc.bg, sc.color)}>
                           {sc.label}
                         </span>
-                        {i.urgencia === 'alta' && <Zap className="w-3 h-3 text-yellow-400" />}
+                        {i.urgencia === 'alta' && <Zap className="w-3 h-3 text-warning" />}
                       </div>
                       <p className="font-medium text-sm text-foreground/85 leading-snug">{i.titulo}</p>
                     </div>

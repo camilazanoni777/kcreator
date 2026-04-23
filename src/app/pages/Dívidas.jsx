@@ -110,7 +110,7 @@ export default function Dividas() {
                       </div>
                     </div>
                     <div className="flex items-center gap-3 text-xs">
-                      <span className="text-green-400">Pago: {formatBRL(pago)}</span>
+                      <span className="text-success">Pago: {formatBRL(pago)}</span>
                       <span className="text-destructive">Resta: {formatBRL(restante)}</span>
                       <span className="text-muted-foreground">Parcela: {formatBRL(parcela)}</span>
                     </div>

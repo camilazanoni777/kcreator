@@ -30,11 +30,11 @@ export function getMoodEmoji(score: number): string {
 }
 
 export function getMoodColor(score: number): string {
-  if (score >= 9) return 'bg-emerald-500';
-  if (score >= 7) return 'bg-green-500';
-  if (score >= 5) return 'bg-yellow-500';
-  if (score >= 3) return 'bg-orange-500';
-  return 'bg-red-500';
+  if (score >= 9) return 'bg-success';
+  if (score >= 7) return 'bg-success';
+  if (score >= 5) return 'bg-warning';
+  if (score >= 3) return 'bg-warning';
+  return 'bg-destructive';
 }
 
 export function calculateStreak(dates: string[]): number {

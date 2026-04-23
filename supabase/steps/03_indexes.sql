@@ -1,0 +1,13 @@
+create index if not exists idx_tarefas_user_id on public.tarefas (user_id);
+create index if not exists idx_tarefas_prazo on public.tarefas (prazo);
+create index if not exists idx_metas_user_id on public.metas (user_id);
+create index if not exists idx_ideias_user_id on public.ideias (user_id);
+create index if not exists idx_habitos_user_id on public.habitos (user_id);
+create index if not exists idx_checkins_user_id_data on public.checkins (user_id, data desc);
+create index if not exists idx_salarios_user_id on public.salarios (user_id);
+create index if not exists idx_gastos_variaveis_user_id_data on public.gastos_variaveis (user_id, data desc);
+create index if not exists idx_contas_fixas_user_id_vencimento on public.contas_fixas (user_id, vencimento);
+create index if not exists idx_entradas_extras_user_id_data on public.entradas_extras (user_id, data desc);
+create index if not exists idx_dividas_user_id on public.dividas (user_id);
+create index if not exists idx_conteudos_user_id on public.conteudos (user_id);
+create index if not exists idx_publis_user_id on public.publis (user_id);

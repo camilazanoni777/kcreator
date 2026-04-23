@@ -57,13 +57,13 @@ function parseCurrencyInput(value) {
 function GoalMetric({ label, value, tone = 'default' }) {
   const tones = {
     default: 'border-border/60 bg-card',
-    success: 'border-green-500/20 bg-green-500/5',
+    success: 'border-success/20 bg-success/10',
     accent: 'border-accent/20 bg-accent/5',
   }
 
   return (
     <div className={`rounded-2xl border p-4 text-center ${tones[tone]}`}>
-      <p className={`text-2xl font-bold ${tone === 'success' ? 'text-green-400' : tone === 'accent' ? 'text-accent' : 'text-primary'}`}>
+      <p className={`text-2xl font-bold ${tone === 'success' ? 'text-success' : tone === 'accent' ? 'text-accent' : 'text-primary'}`}>
         {value}
       </p>
       <p className="mt-1 text-xs text-muted-foreground">{label}</p>
@@ -211,7 +211,7 @@ export default function Metas() {
                 <div
                   key={m.id}
                   className={`space-y-3 rounded-2xl border bg-card p-4 ${
-                    concluida ? 'border-green-500/30' : 'border-border/60'
+                    concluida ? 'border-success/30' : 'border-border/60'
                   }`}
                 >
                   <div className="flex items-start justify-between gap-3">
@@ -259,7 +259,7 @@ export default function Metas() {
                     <div className="h-2 flex-1 overflow-hidden rounded-full bg-border">
                       <div
                         className={`h-full rounded-full transition-all ${
-                          concluida ? 'bg-green-400' : 'bg-gradient-to-r from-primary to-accent'
+                          concluida ? 'bg-success' : 'bg-gradient-to-r from-primary to-accent'
                         }`}
                         style={{ width: `${percent}%` }}
                       />
@@ -268,11 +268,11 @@ export default function Metas() {
                   </div>
 
                   {isEditing ? (
-                    <div className="overflow-hidden rounded-[24px] border border-blush-200/70 bg-gradient-to-r from-white via-blush-50/70 to-iris-50/60 p-3 shadow-soft">
+                    <div className="surface-studio overflow-hidden rounded-[24px] p-3">
                       <div className="flex flex-col gap-3">
                         <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
                           <div className="flex items-center gap-2">
-                            <div className="inline-flex items-center gap-2 rounded-full border border-white/80 bg-white/85 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-foreground/70 shadow-sm">
+                            <div className="surface-glass inline-flex items-center gap-2 rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-foreground/70">
                               <Sparkles className="h-3.5 w-3.5 text-blush-600" />
                               Aporte rapido
                             </div>
@@ -282,7 +282,7 @@ export default function Metas() {
                           </div>
 
                           <div className="grid grid-cols-3 gap-2 lg:min-w-[360px]">
-                            <div className="rounded-2xl border border-border/60 bg-white/85 px-3 py-2 text-center shadow-sm">
+                            <div className="surface-glass rounded-2xl px-3 py-2 text-center">
                               <p className="text-sm font-semibold text-foreground">
                                 {formatBRL(m.valor_atual || 0)}
                               </p>
@@ -290,7 +290,7 @@ export default function Metas() {
                                 Atual
                               </p>
                             </div>
-                            <div className="rounded-2xl border border-border/60 bg-white/85 px-3 py-2 text-center shadow-sm">
+                            <div className="surface-glass rounded-2xl px-3 py-2 text-center">
                               <p className="text-sm font-semibold text-foreground">
                                 {formatBRL(totalComAporte)}
                               </p>
@@ -298,7 +298,7 @@ export default function Metas() {
                                 Depois
                               </p>
                             </div>
-                            <div className="rounded-2xl border border-border/60 bg-white/85 px-3 py-2 text-center shadow-sm">
+                            <div className="surface-glass rounded-2xl px-3 py-2 text-center">
                               <p className="text-sm font-semibold text-foreground">
                                 {formatBRL(faltaComAporte)}
                               </p>
@@ -314,7 +314,7 @@ export default function Metas() {
                             <Label className="text-xs uppercase tracking-[0.16em] text-muted-foreground">
                               Valor adicionado
                             </Label>
-                            <div className="rounded-[20px] border border-white/80 bg-white/90 p-1 shadow-sm">
+                            <div className="surface-glass rounded-[20px] p-1">
                               <div className="flex items-center gap-3 rounded-[16px] px-4 py-2">
                                 <WalletCards className="h-4 w-4 text-muted-foreground" />
                                 <span className="text-sm font-semibold text-muted-foreground">R$</span>
@@ -346,7 +346,7 @@ export default function Metas() {
                         </div>
 
                         <div>
-                          <div className="h-2.5 overflow-hidden rounded-full bg-white/75">
+                          <div className="h-2.5 overflow-hidden rounded-full bg-card/75">
                             <div
                               className="h-full rounded-full bg-gradient-to-r from-primary via-accent to-blush-400 transition-all"
                               style={{ width: `${Math.max(Math.min((totalComAporte / (m.valor_total || 1)) * 100, 100), 0)}%` }}

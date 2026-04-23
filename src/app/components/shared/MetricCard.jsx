@@ -12,21 +12,21 @@ export default function MetricCard({
   className,
 }) {
   const variantStyles = {
-    default: 'border-border/80 bg-white/95',
-    positive: 'border-moss-200/80 bg-gradient-to-br from-white via-moss-50/90 to-[#f8fff9]',
-    negative: 'border-rouge-200/80 bg-gradient-to-br from-white via-rouge-50 to-[#fff8f8]',
-    primary: 'border-iris-200/80 bg-gradient-to-br from-white via-iris-50/85 to-blush-50/70',
-    accent: 'border-blush-200/80 bg-gradient-to-br from-white via-blush-50/85 to-iris-50/60',
-    studio: 'border-blush-200/90 bg-gradient-to-br from-white via-blush-50/80 to-[#fffafb]',
+    default: 'surface-base',
+    positive: 'surface-success',
+    negative: 'surface-danger',
+    primary: 'surface-accent',
+    accent: 'surface-accent',
+    studio: 'surface-studio',
   }
 
   const iconStyles = {
-    default: 'bg-secondary text-muted-foreground',
-    positive: 'bg-moss-100 text-moss-600',
-    negative: 'bg-rouge-100 text-rouge-500',
-    primary: 'bg-iris-100 text-iris-600',
-    accent: 'bg-blush-100 text-blush-600',
-    studio: 'bg-gradient-to-br from-blush-100 to-iris-100 text-iris-700',
+    default: 'icon-shell',
+    positive: 'icon-shell icon-shell-success',
+    negative: 'icon-shell icon-shell-danger',
+    primary: 'icon-shell icon-shell-primary',
+    accent: 'icon-shell icon-shell-accent',
+    studio: 'icon-shell icon-shell-studio',
   }
 
   return (

@@ -15,11 +15,11 @@ import { cn } from '@/lib/utils';
 const CATEGORIAS = ['Saúde', 'Mente', 'Finanças', 'Relacionamento', 'Trabalho', 'Outros'];
 
 const catColors = {
-  'Saúde': 'text-green-400 bg-green-400/10',
-  'Mente': 'text-blue-400 bg-blue-400/10',
+  'Saúde': 'text-success bg-success/12',
+  'Mente': 'text-info bg-info/12',
   'Finanças': 'text-accent bg-accent/10',
   'Relacionamento': 'text-primary bg-primary/10',
-  'Trabalho': 'text-purple-400 bg-purple-400/10',
+  'Trabalho': 'text-chart-5 bg-chart-5/12',
   'Outros': 'text-muted-foreground bg-secondary',
 };
 
@@ -51,7 +51,7 @@ export default function Habitos() {
             <p className="text-xs text-muted-foreground mt-1">Hábitos ativos</p>
           </div>
           <div className="rounded-2xl border border-border/60 bg-card p-4 text-center">
-            <p className="text-2xl font-bold text-green-400">{habitosConcluidos.length}</p>
+            <p className="text-2xl font-bold text-success">{habitosConcluidos.length}</p>
             <p className="text-xs text-muted-foreground mt-1">Metas atingidas</p>
           </div>
           <div className="rounded-2xl border border-border/60 bg-card p-4 text-center">
@@ -123,7 +123,7 @@ export default function Habitos() {
               const pct = Math.min(((h.dias_feitos || 0) / (h.meta_dias || 30)) * 100, 100);
               const concluido = pct >= 100;
               return (
-                <div key={h.id} className={cn("rounded-2xl border p-4 bg-card", concluido ? "border-green-500/30" : "border-border/60")}>
+                <div key={h.id} className={cn("rounded-2xl border p-4 bg-card", concluido ? "border-success/30" : "border-border/60")}>
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex items-center gap-2.5">
                       <span className="text-xl">{h.emoji || '🎯'}</span>
@@ -142,9 +142,9 @@ export default function Habitos() {
                   <div className="space-y-2">
                     <div className="flex justify-between text-xs">
                       <span className="text-muted-foreground">{h.dias_feitos || 0} de {h.meta_dias || 30} dias</span>
-                      <span className={concluido ? 'text-green-400 font-semibold' : 'font-semibold'}>{Math.round(pct)}%</span>
+                      <span className={concluido ? 'text-success font-semibold' : 'font-semibold'}>{Math.round(pct)}%</span>
                     </div>
-                    <Progress value={pct} className={cn("h-1.5", concluido ? "[&>div]:bg-green-400" : "")} />
+                    <Progress value={pct} className={cn("h-1.5", concluido ? "[&>div]:bg-success" : "")} />
                   </div>
 
                   <div className="flex gap-2 mt-3">

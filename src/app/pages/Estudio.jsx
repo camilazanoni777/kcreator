@@ -14,10 +14,10 @@ import { cn } from '@/lib/utils';
 
 const ETAPAS = [
   { key: 'ideia', label: '💡 Ideias / Brainstorm', bg: 'bg-muted', text: 'text-muted-foreground', border: 'border-muted-foreground/20' },
-  { key: 'roteiro', label: '📝 Roteirizando', bg: 'bg-yellow-500/10', text: 'text-yellow-400', border: 'border-yellow-500/20' },
-  { key: 'gravacao', label: '🎥 Para Gravar', bg: 'bg-red-500/10', text: 'text-red-400', border: 'border-red-500/20' },
+  { key: 'roteiro', label: '📝 Roteirizando', bg: 'bg-warning/12', text: 'text-warning', border: 'border-warning/20' },
+  { key: 'gravacao', label: '🎥 Para Gravar', bg: 'bg-destructive/12', text: 'text-destructive', border: 'border-destructive/20' },
   { key: 'edicao', label: '✂️ Em Edição', bg: 'bg-indigo-500/10', text: 'text-indigo-400', border: 'border-indigo-500/20' },
-  { key: 'postado', label: '🚀 Finalizado/Postado', bg: 'bg-green-500/10', text: 'text-green-400', border: 'border-green-500/20' },
+  { key: 'postado', label: '🚀 Finalizado/Postado', bg: 'bg-success/12', text: 'text-success', border: 'border-success/20' },
 ];
 
 const nextEtapa = { ideia: 'roteiro', roteiro: 'gravacao', gravacao: 'edicao', edicao: 'postado' };
@@ -63,11 +63,11 @@ export default function Estudio() {
             <div className="flex justify-between items-center">
               <div>
                 <span className="text-xs text-muted-foreground block">Receita Confirmada</span>
-                <p className="text-2xl font-bold text-green-400">{formatBRL(receitaConfirmada)}</p>
+                <p className="text-2xl font-bold text-success">{formatBRL(receitaConfirmada)}</p>
               </div>
               <div className="text-right">
                 <span className="text-xs text-muted-foreground block">Em Negociação</span>
-                <p className="text-xl font-bold text-yellow-400">{formatBRL(receitaNegociacao)}</p>
+                <p className="text-xl font-bold text-warning">{formatBRL(receitaNegociacao)}</p>
               </div>
             </div>
           </BentoCard>
@@ -116,7 +116,7 @@ export default function Estudio() {
                       <div className="flex gap-2 mt-1 items-center">
                         <Badge variant="outline" className="text-[9px] py-0 h-4">{c.tipo === 'publi' ? 'Publi' : 'Orgânico'}</Badge>
                         {c.tipo === 'publi' && c.receita > 0 && (
-                          <span className="text-[10px] text-green-400">{formatBRL(c.receita)}</span>
+                          <span className="text-[10px] text-success">{formatBRL(c.receita)}</span>
                         )}
                         {c.tipo === 'publi' && (
                           <Button
